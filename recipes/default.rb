@@ -17,6 +17,14 @@ package 'vim'
 package 'virtualbox'
 package 'zsh'
 package 'ruby'
+package 'xorg'
+package 'i3'
+package 'git'
+package 'mercurial'
+package 'xbindkeys'
+package 'xcompmgr'
+package 'rxvt-unicode'
+
 
 gem_package 'tmuxinator'
 
