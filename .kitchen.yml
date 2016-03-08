@@ -1,0 +1,23 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  client_rb:
+      environment: env
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: ubuntu-15.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[lxmx_oh_my_zsh::default]
+      - recipe[machine-setup::default]
+    attributes:
