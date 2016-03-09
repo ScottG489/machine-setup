@@ -21,4 +21,6 @@ suites:
     run_list:
       - recipe[lxmx_oh_my_zsh::default]
       - recipe[machine-setup::default]
+      # TODO: This overwrites idea64.vmoptions after install and I don't like that
+      - recipe[idea::default]
     attributes:

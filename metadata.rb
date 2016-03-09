@@ -8,3 +8,4 @@ version '0.1.0'
 
 depends 'apt', '~> 2.9.2'
 depends 'lxmx_oh_my_zsh', '~> 0.5.0'
+depends 'idea', '~> 0.4.0'

@@ -35,7 +35,6 @@ package 'virtualbox-guest-dkms'
 gem_package 'tmuxinator'
 
 
-
 user 'scott' do
   shell '/bin/zsh'
   manage_home true
@@ -123,6 +122,7 @@ directory '/home/scott' do
   recursive true
 end
 
+directory node['idea']['setup_dir']
 
 # TODO: Commented out for now cuz seemingly slow.
 #chef_dk 'my_chef_dk'
