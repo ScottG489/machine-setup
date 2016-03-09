@@ -7,26 +7,34 @@
 include_recipe 'apt::default'
 
 
+# Required for cookbook to run
+package 'git'
+package 'ruby'
+package 'stow'
+package 'zsh'
+
 package 'chef'
 package 'docker.io'
-package 'git'
-package 'stow'
 package 'tmux'
 package 'vagrant'
 package 'vim'
 package 'virtualbox'
-package 'zsh'
-package 'ruby'
 package 'xorg'
 package 'i3'
-package 'git'
 package 'mercurial'
 package 'xbindkeys'
 package 'xcompmgr'
 package 'rxvt-unicode'
+package 'chromium-browser'
+
+package 'virtualbox-guest-utils'
+package 'virtualbox-guest-x11'
+package 'virtualbox-guest-dkms'
 
 
 gem_package 'tmuxinator'
+
+
 
 user 'scott' do
   shell '/bin/zsh'
