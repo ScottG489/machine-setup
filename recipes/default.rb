@@ -6,6 +6,14 @@
 
 include_recipe 'apt::default'
 
+apt_repository 'cwchien-ubuntu-gradle-vivid' do
+    uri 'ppa:cwchien/gradle'
+    distribution 'vivid'
+end
+apt_repository 'mmk2410-ubuntu-intellij-idea-community-vivid' do
+    uri 'ppa:mmk2410/intellij-idea-community'
+    distribution 'vivid'
+end
 
 # Required for cookbook to run
 package 'git'
@@ -26,6 +34,8 @@ package 'xbindkeys'
 package 'xcompmgr'
 package 'rxvt-unicode'
 package 'chromium-browser'
+package 'gradle'
+package 'intellij-idea-community'
 
 package 'virtualbox-guest-utils'
 package 'virtualbox-guest-x11'
@@ -121,8 +131,6 @@ directory '/home/scott' do
   group 'scott'
   recursive true
 end
-
-directory node['idea']['setup_dir']
 
 # TODO: Commented out for now cuz seemingly slow.
 #chef_dk 'my_chef_dk'
