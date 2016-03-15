@@ -43,6 +43,7 @@ package 'chromium-browser'
 package 'gradle'
 package 'intellij-idea-community'
 package 'hipchat4'
+package 'remmina'
 
 package 'virtualbox-guest-utils'
 package 'virtualbox-guest-x11'
