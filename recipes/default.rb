@@ -14,6 +14,12 @@ apt_repository 'mmk2410-ubuntu-intellij-idea-community-vivid' do
     uri 'ppa:mmk2410/intellij-idea-community'
     distribution 'vivid'
 end
+apt_repository 'hipchat' do
+    uri 'https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client'
+    key 'https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public'
+    distribution 'vivid'
+    components ['main']
+end
 
 # Required for cookbook to run
 package 'git'
@@ -36,6 +42,7 @@ package 'rxvt-unicode'
 package 'chromium-browser'
 package 'gradle'
 package 'intellij-idea-community'
+package 'hipchat4'
 
 package 'virtualbox-guest-utils'
 package 'virtualbox-guest-x11'
