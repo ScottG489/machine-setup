@@ -132,5 +132,15 @@ directory '/home/scott' do
   recursive true
 end
 
+directory '/mnt/windows'
+mount '/mnt/windows' do
+    device 'D_DRIVE'
+    fstype 'vboxsf'
+    options 'umask=0022,gid=scott,uid=scott'
+    action :enable
+end
+# TODO: Isn't working for some reason
+#mount '/mnt/windows'
+
 # TODO: Commented out for now cuz seemingly slow.
 #chef_dk 'my_chef_dk'
