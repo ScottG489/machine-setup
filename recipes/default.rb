@@ -44,6 +44,7 @@ package 'gradle'
 package 'intellij-idea-community'
 package 'hipchat4'
 package 'remmina'
+package 'alsa'
 
 package 'virtualbox-guest-utils'
 package 'virtualbox-guest-x11'
