@@ -19,6 +19,7 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[system::default]
       - recipe[lxmx_oh_my_zsh::default]
       - recipe[machine-setup::default]
     attributes:
