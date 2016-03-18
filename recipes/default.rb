@@ -20,6 +20,12 @@ apt_repository 'hipchat' do
     distribution 'vivid'
     components ['main']
 end
+apt_repository 'i3' do
+    uri 'http://debian.sur5r.net/i3/'
+    distribution 'stable'
+    trusted true
+    components ['main']
+end
 
 # Required for cookbook to run
 package 'git'
