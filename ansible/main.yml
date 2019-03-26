@@ -76,7 +76,8 @@
   - name: Install oh-my-zsh
     become: yes
     become_user: scott
-    shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    # sed command is necessary otherwise provisioning freezes on this step
+    shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed -e '/env zsh -l/d')"
     args:
       chdir: /home/scott/
 
