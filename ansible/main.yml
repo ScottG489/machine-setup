@@ -29,9 +29,10 @@
       - chromium-browser
       #- docker.io
       - alsa
-      - virtualbox-guest-utils
-      - virtualbox-guest-x11
-      - virtualbox-guest-dkms
+      # Don't need these on parallels
+      #- virtualbox-guest-utils
+      #- virtualbox-guest-x11
+      #- virtualbox-guest-dkms
 
 
   # TODO: Not working
