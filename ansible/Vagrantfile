@@ -4,24 +4,24 @@ Vagrant.configure("2") do |config|
   config.disksize.size = '30GB'
 
   config.vm.define "windows" do |win|
-    config.vm.provider "virtualbox" do |v|
+    win.vm.provider "virtualbox" do |v|
       v.cpus = 4
       v.memory = 8000
     end
 
-    config.vm.provision "ansible" do |ansible|
+    win.vm.provision "ansible" do |ansible|
       ansible.playbook = "main-windows.yml"
       ansible.inventory_path = ".vagrant/provisioners/ansible/inventory"
     end
   end
 
   config.vm.define "mac" do |mac|
-    config.vm.provider "parallels" do |v|
+    mac.vm.provider "parallels" do |v|
       v.cpus = 4
       v.memory = 8000
     end
 
-    config.vm.provision "ansible" do |ansible|
+    mac.vm.provision "ansible" do |ansible|
       ansible.playbook = "main-mac.yml"
     end
   end
