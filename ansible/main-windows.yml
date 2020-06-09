@@ -1,0 +1,152 @@
+- hosts: all
+  become: yes
+  #sudo: yes
+  #remote_user: root
+  gather_facts: no
+  pre_tasks:
+    - name: 'install python2 (needed for ansible)'
+      raw: apt install -y python
+
+  tasks:
+  # Necessary because we turn it off for python install pre_task
+  - name: Gathering facts
+    setup:
+  - name: Install packages
+    apt: name={{ item }}
+    with_items:
+      - git
+      - stow
+      - zsh
+      - ruby
+      - tmux
+      - vim
+      - xorg
+      - i3
+      #- mercurial
+      - xbindkeys
+      - xcompmgr
+      - rxvt-unicode
+      - chromium-browser
+      #- docker.io
+      - alsa
+      - virtualbox-guest-utils
+      - virtualbox-guest-x11
+      - virtualbox-guest-dkms
+
+  # TODO: Not working
+  - name: Install gem packages
+    gem:
+      name: tmuxinator
+
+  - name: Setup users
+    user:
+      name: scott
+      groups: sudo
+      shell: /bin/zsh
+
+  - name: Copy scottg489@gmail.com id_rsa to scott .ssh
+    become: yes
+    become_user: scott
+    copy:
+      src: ssh/id_rsa
+      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0600
+
+  - name: Copy known_hosts to scott .ssh
+    become: yes
+    become_user: scott
+    copy:
+      src: ssh/known_hosts
+      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0644
+
+  - name: Clone dotfiles
+    become: yes
+    become_user: scott
+    git:
+      repo: git@gitlab.com:ScottG489/dotfiles.git
+      dest: /home/scott/.dotfiles
+
+  - name: Install oh-my-zsh
+    become: yes
+    become_user: scott
+    # Reading in 'y' is necessary otherwise provisioning freezes. This is because the install script prompts 'y/n' at one point.
+    shell: |
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" << EOF
+      y
+      EOF
+    args:
+      chdir: /home/scott/
+      creates: ~/.oh-my-zsh
+
+  - name: Clone vundle
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/VundleVim/Vundle.vim.git
+      dest: /home/scott/.vim/bundle/Vundle.vim
+  - name: Clone vim-airline
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/bling/vim-airline.git
+      dest: /home/scott/.vim/bundle/vim-airline
+  - name: Clone vim-colors-solarized
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/altercation/vim-colors-solarized.git
+      dest: /home/scott/.vim/bundle/vim-colors-solarized
+  - name: Clone vim-easymotion
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/Lokaltog/vim-easymotion.git
+      dest: /home/scott/.vim/bundle/vim-easymotion
+  - name: Clone vim-futigive
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/tpope/vim-fugitive.git
+      dest: /home/scott/.vim/bundle/vim-fugitive
+  - name: Clone vim-sensible
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/tpope/vim-sensible.git
+      dest: /home/scott/.vim/bundle/vim-sensible
+
+  - name: Back up .bashrc
+    become: yes
+    become_user: scott
+    copy:
+      remote_src: True
+      src: /home/scott/.bashrc
+      dest: /home/scott/.bashrc.bkp
+  - name: Remove original .bashrc file
+    become: yes
+    become_user: scott
+    file: path=/home/scott/.bashrc state=absent
+
+  - name: Back up .zshrc
+    become: yes
+    become_user: scott
+    copy:
+      remote_src: True
+      src: /home/scott/.zshrc
+      dest: /home/scott/.zshrc.bkp
+  - name: Remove original .zshrc file
+    become: yes
+    become_user: scott
+    file: path=/home/scott/.zshrc state=absent
+
+  - name: Set up all dotfiles
+    become: yes
+    become_user: scott
+    shell: /usr/bin/stow -S *
+    args:
+      chdir: /home/scott/.dotfiles

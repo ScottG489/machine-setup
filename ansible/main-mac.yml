@@ -29,11 +29,6 @@
       - chromium-browser
       #- docker.io
       - alsa
-      # Don't need these on parallels
-      #- virtualbox-guest-utils
-      #- virtualbox-guest-x11
-      #- virtualbox-guest-dkms
-
 
   # TODO: Not working
   - name: Install gem packages
