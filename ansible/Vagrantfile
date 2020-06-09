@@ -1,15 +1,28 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-18.04"
+  config.vm.box = "bento/ubuntu-20.04"
   config.vm.hostname = "scott-vm"
   config.disksize.size = '30GB'
-  config.vm.provider "parallels" do |v|
+
+  config.vm.define "windows" do |win|
+    config.vm.provider "parallels" do |v|
       v.cpus = 4
       v.memory = 8000
-      #v.gui = true
+    end
+
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "main.yml"
+    end
   end
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "main.yml"
+  config.vm.define "mac" do |mac|
+    config.vm.provider "parallels" do |v|
+      v.cpus = 4
+      v.memory = 8000
+    end
+
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "main.yml"
+    end
   end
 
 end
