@@ -3,3 +3,9 @@ After run login to machine as the user 'vagrant' with the default password of 'v
 After logging in run 'startx' to start the X window server.
 
 If there are issues with setting the resolution properly, make sure that the proper virtualbox guest additions are installed on the guest. Note that this isn't necessary if running on a mac as parallels should be used.
+
+On Windows you'll need to shut down the machine and adjust 2 things under the 'Display' settings for the VM.
+1. Increase the 'Video Memory' (I increased it to 32MB)
+2. Change the 'Graphics Controller' to 'VMSVGA'
+
+Start up the VM and you'll need to set the resolution under the View menu dropdown. This should stick across reboots. It's possible something may also need to be done with xrandr as well but I didn't have to this time.
