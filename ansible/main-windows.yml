@@ -27,6 +27,7 @@
       - xcompmgr
       - rxvt-unicode
       - chromium-browser
+      - ansible
       #- docker.io
       - alsa
       - virtualbox-guest-utils
