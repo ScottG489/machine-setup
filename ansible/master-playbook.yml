@@ -72,6 +72,7 @@
     git:
       repo: git@github.com:ScottG489/dotfiles.git
       dest: /home/scott/.dotfiles
+      update: no
 
   - name: Install oh-my-zsh
     become: yes
