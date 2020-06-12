@@ -4,9 +4,9 @@
 - hosts: all
   tasks:
   - name: Install packages
-    apt: name={{ item }}
-    with_items:
-      - virtualbox-guest-utils
-      - virtualbox-guest-x11
-      - virtualbox-guest-dkms
+    package:
+      name:
+        - virtualbox-guest-utils
+        - virtualbox-guest-x11
+        - virtualbox-guest-dkms
 

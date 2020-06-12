@@ -12,24 +12,24 @@
   - name: Gathering facts
     setup:
   - name: Install packages
-    apt: name={{ item }}
-    with_items:
-      - git
-      - stow
-      - zsh
-      - ruby
-      - tmux
-      - vim
-      - xorg
-      - i3
-      #- mercurial
-      - xbindkeys
-      - xcompmgr
-      - rxvt-unicode
-      - chromium-browser
-      - ansible
-      #- docker.io
-      - alsa
+    package:
+      name:
+        - git
+        - stow
+        - zsh
+        - ruby
+        - tmux
+        - vim
+        - xorg
+        - i3
+        #- mercurial
+        - xbindkeys
+        - xcompmgr
+        - rxvt-unicode
+        - chromium-browser
+        - ansible
+        #- docker.io
+        - alsa
 
   # TODO: Not working
   - name: Install gem packages
