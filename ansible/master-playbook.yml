@@ -22,14 +22,15 @@
         - vim
         - xorg
         - i3
-        #- mercurial
         - xbindkeys
         - xcompmgr
         - rxvt-unicode
         - chromium-browser
         - ansible
-        #- docker.io
+        - docker.io
         - alsa
+        - npm
+        - vagrant
 
   # TODO: Not working
   - name: Install gem packages
