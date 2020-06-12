@@ -30,9 +30,6 @@
       - ansible
       #- docker.io
       - alsa
-      - virtualbox-guest-utils
-      - virtualbox-guest-x11
-      - virtualbox-guest-dkms
 
   # TODO: Not working
   - name: Install gem packages
