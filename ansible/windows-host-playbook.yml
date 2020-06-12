@@ -1,0 +1,12 @@
+- name: Import master playbook
+  import_playbook: master-playbook.yml
+
+- hosts: all
+  tasks:
+  - name: Install packages
+    apt: name={{ item }}
+    with_items:
+      - virtualbox-guest-utils
+      - virtualbox-guest-x11
+      - virtualbox-guest-dkms
+
