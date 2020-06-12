@@ -1,3 +1,9 @@
+This can be run locally on an existing machine by running the following:
+```bash
+ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 windows-host-playbook.yml
+```
+Be sure to change the playbook to the one appropriate for the host system you're running it on
+
 After run login to machine as the user 'vagrant' with the default password of 'vagrant'. Then 'sudo su' to log in as root and run 'passwd scott' to create the password for the user 'scott'. Then log out of root and vagrant and log in with scott using the new password.
 
 After logging in run 'startx' to start the X window server.
