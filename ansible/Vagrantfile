@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     end
 
     win.vm.provision "ansible" do |ansible|
-      ansible.playbook = "main-windows.yml"
+      ansible.playbook = "windows-host-playbook.yml"
       ansible.inventory_path = ".vagrant/provisioners/ansible/inventory"
     end
   end
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     end
 
     mac.vm.provision "ansible" do |ansible|
-      ansible.playbook = "main-mac.yml"
+      ansible.playbook = "mac-host-playbook.yml"
     end
   end
 
