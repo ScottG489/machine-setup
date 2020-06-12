@@ -68,7 +68,7 @@
     become: yes
     become_user: scott
     git:
-      repo: git@gitlab.com:ScottG489/dotfiles.git
+      repo: git@github.com:ScottG489/dotfiles.git
       dest: /home/scott/.dotfiles
 
   - name: Install oh-my-zsh
