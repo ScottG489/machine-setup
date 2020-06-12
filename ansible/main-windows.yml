@@ -65,6 +65,10 @@
       group: scott
       mode: 0644
 
+  - name: Set timezone to US/Pacific
+    timezone:
+      name: US/Pacific
+
   - name: Clone dotfiles
     become: yes
     become_user: scott
