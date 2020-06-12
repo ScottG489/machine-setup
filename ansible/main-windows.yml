@@ -129,6 +129,7 @@
     become: yes
     become_user: scott
     copy:
+      force: no
       remote_src: True
       src: /home/scott/.bashrc
       dest: /home/scott/.bashrc.bkp
@@ -141,6 +142,7 @@
     become: yes
     become_user: scott
     copy:
+      force: no
       remote_src: True
       src: /home/scott/.zshrc
       dest: /home/scott/.zshrc.bkp
