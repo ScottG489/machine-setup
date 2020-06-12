@@ -124,6 +124,12 @@
     git:
       repo: https://github.com/tpope/vim-sensible.git
       dest: /home/scott/.vim/bundle/vim-sensible
+  - name: Clone tmux package manager (tpm)
+    become: yes
+    become_user: scott
+    git:
+      repo: https://github.com/tmux-plugins/tpm
+      dest: ~/.tmux/plugins/tpm
 
   - name: Back up .bashrc
     become: yes
