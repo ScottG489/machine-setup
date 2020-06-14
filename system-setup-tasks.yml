@@ -1,0 +1,18 @@
+- name: Set timezone to US/Pacific
+  timezone:
+    name: US/Pacific
+
+- name: Copy file to set inotify watch limit to be higher (for intellij)
+  become: yes
+  copy:
+    src: sysctl.d/60-jetbrains.conf
+    dest: /etc/sysctl.d/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Setup users
+  user:
+    name: scott
+    groups: sudo
+    shell: /bin/zsh
