@@ -1,0 +1,32 @@
+- name: Install packages
+  package:
+    name:
+      - git
+      - stow
+      - zsh
+      - ruby
+      - tmux
+      - vim
+      - xorg
+      - i3
+      - xbindkeys
+      - xcompmgr
+      - rxvt-unicode
+      - chromium-browser
+      - ansible
+      - docker.io
+      - alsa
+      - npm
+      - vagrant
+
+- name: Install snap packages
+  snap:
+    classic: yes
+    name:
+      - intellij-idea-ultimate
+      - webstorm
+
+# TODO: Not working
+- name: Install gem packages
+  gem:
+    name: tmuxinator

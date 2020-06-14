@@ -11,31 +11,9 @@
   # Necessary because we turn it off for python install pre_task
   - name: Gathering facts
     setup:
-  - name: Install packages
-    package:
-      name:
-        - git
-        - stow
-        - zsh
-        - ruby
-        - tmux
-        - vim
-        - xorg
-        - i3
-        - xbindkeys
-        - xcompmgr
-        - rxvt-unicode
-        - chromium-browser
-        - ansible
-        - docker.io
-        - alsa
-        - npm
-        - vagrant
 
-  # TODO: Not working
-  - name: Install gem packages
-    gem:
-      name: tmuxinator
+  - name: Include package install tasks
+    import_tasks: package-install-tasks.yml
 
   - name: Setup users
     user:
