@@ -14,5 +14,5 @@
 - name: Setup users
   user:
     name: scott
-    groups: sudo
+    groups: sudo,docker
     shell: /bin/zsh
