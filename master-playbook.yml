@@ -12,10 +12,10 @@
   - name: Gathering facts
     setup:
 
-  - name: Include system setup tasks
+  - name: Import system setup tasks
     import_tasks: system-setup-tasks.yml
 
-  - name: Include package install tasks
+  - name: Import package install tasks
     import_tasks: package-install-tasks.yml
 
   - name: Copy scottg489@gmail.com id_rsa to scott .ssh
@@ -38,7 +38,7 @@
       group: scott
       mode: 0644
 
-  - name: Include vim plugin tasks
+  - name: Import vim plugin tasks
     import_tasks: vim-plugin-tasks.yml
 
   - name: Clone tmux package manager (tpm)
