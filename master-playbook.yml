@@ -4,8 +4,10 @@
   #remote_user: root
   gather_facts: no
   pre_tasks:
-    - name: 'install python2 (needed for ansible)'
-      raw: apt update && apt install -y python acl
+    - name: Update apt
+      raw: apt update
+    - name: Install python2 (needed for ansible) and acl for timezone setup
+      raw: apt install -y python acl
 
   tasks:
   # Necessary because we turn it off for python install pre_task
