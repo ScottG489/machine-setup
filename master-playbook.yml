@@ -15,10 +15,10 @@
     setup:
 
   - name: Import system setup tasks
-    import_tasks: system-setup-tasks.yml
+    import_tasks: tasks/system-setup-tasks.yml
 
   - name: Import package install tasks
-    import_tasks: package-install-tasks.yml
+    import_tasks: tasks/package-install-tasks.yml
 
   - name: Setup users
     user:
@@ -59,7 +59,7 @@
       creates: ~/.oh-my-zsh
 
   - name: Import vim plugin tasks
-    import_tasks: vim-plugin-tasks.yml
+    import_tasks: tasks/vim-plugin-tasks.yml
 
   - name: Clone tmux package manager (tpm)
     become: yes
@@ -69,4 +69,4 @@
       dest: ~/.tmux/plugins/tpm
 
   - name: Import dotfile setup tasks
-    import_tasks: dotfile-setup-tasks.yml
+    import_tasks: tasks/dotfile-setup-tasks.yml
