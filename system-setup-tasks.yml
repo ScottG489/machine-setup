@@ -10,9 +10,3 @@
     owner: root
     group: root
     mode: 0644
-
-- name: Setup users
-  user:
-    name: scott
-    groups: sudo,docker
-    shell: /bin/zsh

@@ -20,6 +20,12 @@
   - name: Import package install tasks
     import_tasks: package-install-tasks.yml
 
+  - name: Setup users
+    user:
+      name: scott
+      groups: sudo,docker
+      shell: /bin/zsh
+
   - name: Copy scottg489@gmail.com id_rsa to scott .ssh
     become: yes
     become_user: scott
