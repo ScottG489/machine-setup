@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_instance" "example" {
   ami           = "ami-003634241a8fcdec0"
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   vpc_security_group_ids = [aws_security_group.instance.id]
   key_name = aws_key_pair.machine_prov_test_key.key_name
 
