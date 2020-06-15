@@ -1,6 +1,6 @@
 This can be run locally on an existing machine by running the following:
 ```bash
-ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 windows-host-playbook.yml
+ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 master-playbook.yml
 ```
 Be sure to change the playbook to the one appropriate for the host system you're running it on
 
