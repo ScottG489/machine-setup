@@ -4,6 +4,7 @@
       - git
       - stow
       - zsh
+      - default-jdk
       - ruby
       - tmux
       - vim
