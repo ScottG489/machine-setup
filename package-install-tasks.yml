@@ -42,3 +42,11 @@
   args:
     chdir: /home/scott/
     creates: ~/.oh-my-zsh
+
+- name: Install terraform
+  become: yes
+  become_user: scott
+  shell: |
+    curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip -o /tmp/terraform.zip && \
+    unzip -d /usr/local/bin /tmp/terraform.zip && \
+    rm /tmp/terraform.zip
