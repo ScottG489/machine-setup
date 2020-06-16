@@ -2,10 +2,10 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "machine_setup_test_instance" {
   ami           = "ami-09dd2e08d601bff67"
   instance_type = "t2.medium"
-  vpc_security_group_ids = [aws_security_group.instance.id]
+  vpc_security_group_ids = [aws_security_group.machine_setup_test_sg.id]
   key_name = aws_key_pair.machine_prov_test_key.key_name
 
   tags = {
@@ -13,7 +13,7 @@ resource "aws_instance" "example" {
   }
 }
 
-resource "aws_security_group" "instance" {
+resource "aws_security_group" "machine_setup_test_sg" {
   name = "machine-prov-test-sg"
   ingress {
     from_port   = 0
