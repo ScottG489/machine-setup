@@ -26,17 +26,15 @@
       groups: sudo,docker
       shell: /bin/zsh
 
-# TODO: The id_rsa file was stripped from history because it's a secret. We'll have to find a way
-# TODO:   around this either by just not doing it or making it optional with a runtime var
-#  - name: Copy scottg489@gmail.com id_rsa to scott .ssh
-#    become: yes
-#    become_user: scott
-#    copy:
-#      src: ssh/id_rsa
-#      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
-#      owner: scott
-#      group: scott
-#      mode: 0600
+  - name: Copy scottg489@gmail.com id_rsa to scott .ssh
+    become: yes
+    become_user: scott
+    copy:
+      src: ssh/id_rsa
+      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0600
 
   - name: Copy known_hosts to scott .ssh
     become: yes

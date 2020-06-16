@@ -4,6 +4,8 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 mas
 ```
 Be sure to change the playbook to the one appropriate for the host system you're running it on
 
+Also be sure to put the proper RSA key at `files/ssh/id_rsa`. This is the RSA key which will be put onto the provisioned machine. It's needed to clone github repos such as the dotfile repo.
+
 After run login to machine as the user 'vagrant' with the default password of 'vagrant'. Then `sudo su` to log in as root and run `passwd scott` to create the password for the user 'scott'. Then log out of root and vagrant and log in with scott using the new password.
 
 After logging in run `startx` to start the X Window System.
