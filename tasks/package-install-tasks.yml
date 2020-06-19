@@ -11,6 +11,7 @@
       - xorg
       - i3
       - xbindkeys
+      - xsel
       - xcompmgr
       - rxvt-unicode
       - chromium-browser
