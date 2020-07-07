@@ -1,3 +1,6 @@
+# Machine setup
+![CI](https://github.com/ScottG489/machine-setup/workflows/CI/badge.svg)
+
 This can be run locally on an existing machine by running the following:
 ```bash
 ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 master-playbook.yml
