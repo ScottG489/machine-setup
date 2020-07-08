@@ -5,7 +5,7 @@
   gather_facts: no
   pre_tasks:
     - name: Update apt
-      raw: apt update || apt update
+      raw: apt update ; apt update
     - name: Install python2 (needed for ansible) and acl for timezone setup
       raw: apt install -y python acl
 
