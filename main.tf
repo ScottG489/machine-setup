@@ -4,12 +4,12 @@ provider "aws" {
 
 resource "aws_spot_instance_request" "spot_instance_request" {
   ami           = "ami-09dd2e08d601bff67"
-  instance_type = "t2.medium"
+  instance_type = "t2.2xlarge"
   vpc_security_group_ids = [aws_security_group.test_sg.id]
   key_name = aws_key_pair.test_key_pair.key_name
 
   spot_type = "one-time"
-  spot_price    = "0.03"
+  spot_price    = "0.4"
   wait_for_fulfillment = true
 
   root_block_device {
