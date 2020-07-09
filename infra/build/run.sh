@@ -5,6 +5,7 @@ source /opt/build/build_functions.sh
 
 trap cleanup EXIT
 cleanup() {
+  cd "$(get_git_root_dir)/infra/tf"
   terraform destroy --auto-approve
 }
 
