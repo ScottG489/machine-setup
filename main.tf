@@ -18,16 +18,16 @@ resource "aws_spot_instance_request" "spot_instance_request" {
   }
 
   tags = {
-    Name = var.spot_instance_tag_name
+    Name = "${var.spot_instance_tag_name}_${random_uuid.rand.result}"
   }
 
   provisioner "local-exec" {
-    command = "aws ec2 create-tags --resources ${aws_spot_instance_request.spot_instance_request.spot_instance_id} --tag --tags Key=Name,Value=${var.instance_tag_name}"
+    command = "aws ec2 create-tags --resources ${aws_spot_instance_request.spot_instance_request.spot_instance_id} --tag --tags Key=Name,Value=${var.instance_tag_name}_${random_uuid.rand.result}"
   }
 }
 
 resource "aws_security_group" "test_sg" {
-  name = var.sg_name
+  name = "${var.sg_name}_${random_uuid.rand.result}"
   ingress {
     from_port   = 0
     to_port     = 0
@@ -44,6 +44,8 @@ resource "aws_security_group" "test_sg" {
 }
 
 resource "aws_key_pair" "test_key_pair" {
-  key_name   = var.key_pair_name
+  key_name   = "${var.key_pair_name}_${random_uuid.rand.result}"
   public_key = var.public_key
 }
+
+resource "random_uuid" "rand" { }
