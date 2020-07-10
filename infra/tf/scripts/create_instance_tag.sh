@@ -1,4 +1,6 @@
 #!/bin/bash
+set -ex
+
 declare -r SPOT_INSTANCE_ID=$1
 declare -r TAG_NAME=$2
 
