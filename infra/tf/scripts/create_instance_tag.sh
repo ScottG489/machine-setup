@@ -1,0 +1,5 @@
+#!/bin/bash
+declare -r SPOT_INSTANCE_ID=$1
+declare -r TAG_NAME=$2
+
+aws ec2 create-tags --resources "$SPOT_INSTANCE_ID" --tag --tags Key=Name,Value="$TAG_NAME"

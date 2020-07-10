@@ -22,7 +22,7 @@ resource "aws_spot_instance_request" "spot_instance_request" {
   }
 
   provisioner "local-exec" {
-    command = "aws ec2 create-tags --resources ${aws_spot_instance_request.spot_instance_request.spot_instance_id} --tag --tags Key=Name,Value=${var.instance_tag_name}_${random_uuid.rand.result}"
+    command = "./scripts/create_instance_tag.sh ${aws_spot_instance_request.spot_instance_request.spot_instance_id} ${var.instance_tag_name}_${random_uuid.rand.result}"
   }
 }
 
