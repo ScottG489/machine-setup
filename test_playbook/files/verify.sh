@@ -4,7 +4,7 @@ set -x
 FAILURES=0
 trap 'FAILURES=$((FAILURES+1))' ERR
 
-test_date() {
+test_timezone() {
   [ "$(date +'%Z')" = 'PDT' ]
 }
 
@@ -15,7 +15,7 @@ test_clone() {
 }
 
 test_clone
-test_date
+test_timezone
 
 if ((FAILURES == 0)); then
   echo "Test status: SUCCESS"
