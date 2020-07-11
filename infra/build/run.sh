@@ -29,3 +29,5 @@ chmod 644 files/ssh/id_rsa
 tf_apply "infra/tf"
 
 ansible_deploy "infra/tf"
+
+run_tests "infra/tf"
