@@ -38,3 +38,10 @@ docker run -it --volume "$PWD:/opt/build/machine-setup" machine-setup-test '{"ID
 3. Run the image with the path to your local repository mounted where the code would normally be cloned to
 
 Note that you'll need to comment out the `git clone` in the build otherwise it will fail since you've mounted a directory there
+
+## Misc
+### Reset Intellij Ultimate trial
+```bash
+rm -rf .java/.userPrefs .config/JetBrains/IntelliJIdea2020.1/options/other.xml .config/JetBrains/IntelliJIdea2020.1/eval/*
+```
+See also: https://dstarod.github.io/idea-trial/
