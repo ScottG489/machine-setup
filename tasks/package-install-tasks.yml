@@ -1,3 +1,7 @@
+- name: Add PPA repo for peek tool
+  apt_repository:
+    repo: ppa:peek-developers/stable
+
 - name: Install packages
   package:
     name:
@@ -21,6 +25,8 @@
       - pulseaudio
       - npm
       - vagrant
+      - flameshot
+      - peek
 
 - name: Install snap packages
   snap:
