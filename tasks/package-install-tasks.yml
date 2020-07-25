@@ -27,6 +27,7 @@
       - vagrant
       - flameshot
       - peek
+      - dbus-x11
 
 - name: Install snap packages
   snap:
