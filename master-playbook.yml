@@ -61,6 +61,16 @@
       dest: ~/bin/imgur
       mode: '0775'
 
+  - name: Install xrectsel tool
+    become: yes
+    become_user: scott
+    copy:
+      src: bin/xrectsel/xrectsel
+      dest: ~/bin/
+      owner: scott
+      group: scott
+      mode: '0775'
+
   - name: Install oh-my-zsh
     become: yes
     become_user: scott
