@@ -26,6 +26,13 @@
       groups: sudo,docker
       shell: /bin/zsh
 
+  - name: Create home bin dir
+    become: yes
+    become_user: scott
+    file:
+      path: ~/bin
+      state: directory
+
   - name: Copy scottg489@gmail.com id_rsa to scott .ssh
     become: yes
     become_user: scott
@@ -45,6 +52,14 @@
       owner: scott
       group: scott
       mode: 0644
+
+  - name: Install imgur upload tool
+    become: yes
+    become_user: scott
+    get_url:
+      url: https://raw.githubusercontent.com/tremby/imgur.sh/main/imgur.sh
+      dest: ~/bin/imgur
+      mode: '0775'
 
   - name: Install oh-my-zsh
     become: yes
