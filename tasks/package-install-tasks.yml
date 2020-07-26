@@ -28,6 +28,7 @@
       - flameshot
       - peek
       - dbus-x11
+      - libnotify-bin
 
 - name: Install snap packages
   snap:
