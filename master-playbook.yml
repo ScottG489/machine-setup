@@ -52,6 +52,16 @@
       owner: scott
       group: scott
       mode: 0600
+      
+  - name: Copy known_hosts to scott .ssh
+    become: yes
+    become_user: scott
+    copy:
+      src: ssh/known_hosts
+      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0644
 
   - name: Copy scottg489@gmail.com aws credentials to scott .aws
     become: yes
@@ -63,15 +73,6 @@
       group: scott
       mode: 0664
 
-  - name: Copy known_hosts to scott .ssh
-    become: yes
-    become_user: scott
-    copy:
-      src: ssh/known_hosts
-      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
-      owner: scott
-      group: scott
-      mode: 0644
 
   - name: Install imgur upload tool
     become: yes
