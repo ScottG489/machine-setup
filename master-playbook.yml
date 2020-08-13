@@ -125,3 +125,9 @@
 
   - name: Import dotfile setup tasks
     import_tasks: tasks/dotfile-setup-tasks.yml
+
+  - name: Install vundle plugins
+    become: yes
+    become_user: scott
+    shell: |
+      vim +PluginInstall +qall
