@@ -43,6 +43,26 @@
       group: scott
       mode: 0600
 
+  - name: Copy scottg489@gmail.com aws mainkeypair to scott .ssh
+    become: yes
+    become_user: scott
+    copy:
+      src: ssh/mainkeypair.pem
+      dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0600
+
+  - name: Copy scottg489@gmail.com aws credentials to scott .aws
+    become: yes
+    become_user: scott
+    copy:
+      src: aws/credentials
+      dest: /home/scott/.aws/  # Trailing slash needed to create dirs if they don't exist
+      owner: scott
+      group: scott
+      mode: 0664
+
   - name: Copy known_hosts to scott .ssh
     become: yes
     become_user: scott
