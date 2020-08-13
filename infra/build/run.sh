@@ -26,6 +26,11 @@ cd $_PROJECT_NAME
 cp /root/.ssh/id_rsa files/ssh/id_rsa
 chmod 644 files/ssh/id_rsa
 
+cp /root/.ssh/mainkeypair.pem files/ssh/mainkeypair.pem
+chmod 644 files/ssh/mainkeypair.pem
+
+cp /root/.aws/credentials files/aws/credentials
+
 tf_apply "infra/tf"
 
 ansible_deploy "infra/tf"
