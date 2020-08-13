@@ -29,6 +29,7 @@
       - peek
       - dbus-x11
       - libnotify-bin
+      - awscli
 
 - name: Install snap packages
   snap:
