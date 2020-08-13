@@ -1,7 +1,3 @@
-- name: Add PPA repo for peek tool
-  apt_repository:
-    repo: ppa:peek-developers/stable
-
 - name: Install packages
   package:
     name:
@@ -26,7 +22,6 @@
       - npm
       - vagrant
       - flameshot
-      - peek
       - dbus-x11
       - libnotify-bin
       - awscli
