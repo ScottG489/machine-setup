@@ -26,3 +26,19 @@ dependencies:
         - dbus-x11
         - libnotify-bin
         - awscli
+      user_files:
+        - src: ssh/id_rsa
+          dest: /home/scott/.ssh/
+          mode: "0600"
+        - src: ssh/known_hosts
+          dest: /home/scott/.ssh/
+          mode: "0644"
+        - src: ssh/mainkeypair.pem
+          dest: /home/scott/.ssh/
+          mode: "0600"
+        - src: aws/credentials
+          dest: /home/scott/.aws/
+          mode: "0664"
+        - src: aws/config
+          dest: /home/scott/.aws/
+          mode: "0664"

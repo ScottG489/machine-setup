@@ -2,7 +2,7 @@
   import_tasks: package-install-tasks.yml
 
 - name: Import user setup tasks
-  import_tasks: user-setup-tasks.yml
+  import_tasks: user-install-tasks.yml
 
 - name: Import system setup tasks
   import_tasks: system-setup-tasks.yml

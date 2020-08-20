@@ -1,0 +1,29 @@
+- name: Install imgur upload tool
+  become: yes
+  become_user: scott
+  get_url:
+    url: https://raw.githubusercontent.com/tremby/imgur.sh/main/imgur.sh
+    dest: ~/bin/imgur
+    mode: '0775'
+
+- name: Install xrectsel tool
+  become: yes
+  become_user: scott
+  copy:
+    src: bin/xrectsel/xrectsel
+    dest: ~/bin/
+    owner: scott
+    group: scott
+    mode: '0775'
+
+- name: Install oh-my-zsh
+  become: yes
+  become_user: scott
+  # Reading in 'y' is necessary otherwise provisioning freezes. This is because the install script prompts 'y/n' at one point.
+  shell: |
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" << EOF
+    y
+    EOF
+  args:
+    chdir: /home/scott/
+    creates: ~/.oh-my-zsh

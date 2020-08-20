@@ -11,25 +11,16 @@
     path: ~/bin
     state: directory
 
-- name: Copy scottg489@gmail.com id_rsa to scott .ssh
+- name: Copy user files (i.e. secrets or files for boostrapping)
   become: yes
   become_user: scott
   copy:
-    src: ssh/id_rsa
-    dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"  # Trailing slash needed to create dirs if they don't exist
     owner: scott
     group: scott
-    mode: 0600
-
-- name: Copy known_hosts to scott .ssh
-  become: yes
-  become_user: scott
-  copy:
-    src: ssh/known_hosts
-    dest: /home/scott/.ssh/  # Trailing slash needed to create dirs if they don't exist
-    owner: scott
-    group: scott
-    mode: 0644
+    mode: "{{ item.mode }}"
+  with_items: "{{ user_files }}"
 
 - name: Install oh-my-zsh
   become: yes
