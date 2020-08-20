@@ -12,6 +12,7 @@ test_clone() {
   mkdir -p "$HOME"/code
   cd "$HOME"/code || return 1
   git clone git@github.com:ScottG489/dotfiles.git
+  rm -rf dotfiles
 }
 
 test_aws_region() {
