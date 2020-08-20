@@ -1,0 +1,8 @@
+dependencies:
+  - role: common
+    vars:
+      user_groups: sudo
+      install_packages:
+        - zsh
+        - tmux
+        - vim

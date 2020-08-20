@@ -1,5 +1,5 @@
 - name: Import master playbook
-  import_playbook: master-playbook.yml
+  import_playbook: desktop-master-playbook.yml
 
 - hosts: all
   tasks:

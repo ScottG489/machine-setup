@@ -1,0 +1,28 @@
+dependencies:
+  - role: common
+    vars:
+      user_groups: sudo,docker
+      install_packages:
+        - git
+        - zsh
+        - vim
+        - docker.io
+        - tmux
+        - default-jdk
+        - ruby
+        - xorg
+        - i3
+        - xbindkeys
+        - xsel
+        - xcompmgr
+        - rxvt-unicode
+        - chromium-browser
+        - ansible
+        - alsa
+        - pulseaudio
+        - npm
+        - vagrant
+        - flameshot
+        - dbus-x11
+        - libnotify-bin
+        - awscli

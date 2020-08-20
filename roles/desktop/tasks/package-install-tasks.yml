@@ -1,0 +1,25 @@
+- name: Install packages required to install terraform (i.e. unzip)
+  package:
+    name:
+      - unzip
+
+- name: Install snap packages
+  snap:
+    classic: yes
+    name:
+      - intellij-idea-ultimate
+      - webstorm
+
+# TODO: Not working
+#- name: Install gem packages
+#  gem:
+#    name: tmuxinator
+
+- name: Install terraform
+  become: yes
+  shell: |
+    curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip -o /tmp/terraform.zip && \
+    unzip -d /usr/local/bin /tmp/terraform.zip && \
+    rm /tmp/terraform.zip
+  args:
+    creates: /usr/local/bin/terraform
