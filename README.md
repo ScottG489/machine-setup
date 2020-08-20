@@ -39,6 +39,11 @@ docker run -it --volume "$PWD:/opt/build/machine-setup" machine-setup-test '{"ID
 
 Note that you'll need to comment out the `git clone` in the build otherwise it will fail since you've mounted a directory there
 
+### Tips
+Commenting out lines can speed up your local development. Just be sure not to check in these changes! A few examples of doing this are:
+- Commenting out the line to tear down the environment after it's finished running. This can help with turnaround time since you won't have to recreate the environment every time. However, still be aware you could miss problems by not running the suite from scratch. So be careful doing this. Also, be sure to tear down the environment after you're finished with it so there aren't dangling unused instances.
+- Commenting out anything which you don't need to run every time. For instance not running `terraform apply` subsequent times if you are only working on the playbooks could save time.
+
 ## Misc
 ### Reset Intellij Ultimate trial
 ```bash
