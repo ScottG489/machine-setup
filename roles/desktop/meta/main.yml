@@ -39,6 +39,3 @@ dependencies:
         - src: aws/credentials
           dest: /home/scott/.aws/
           mode: "0664"
-        - src: aws/config
-          dest: /home/scott/.aws/
-          mode: "0664"
