@@ -4,43 +4,35 @@
       - git
       - stow
 
-- name: Clone dotfiles
-  become: yes
-  become_user: scott
-  git:
-    repo: git@github.com:ScottG489/dotfiles.git
-    dest: /home/scott/.dotfiles
-    update: no
+- name: Run all tasks as user
+  block:
+    - name: Clone dotfiles
+      git:
+        repo: git@github.com:ScottG489/dotfiles.git
+        dest: /home/scott/.dotfiles
+        update: no
 
-- name: Back up .bashrc
-  become: yes
-  become_user: scott
-  copy:
-    force: no
-    remote_src: True
-    src: /home/scott/.bashrc
-    dest: /home/scott/.bashrc.bkp
-- name: Remove original .bashrc file
-  become: yes
-  become_user: scott
-  file: path=/home/scott/.bashrc state=absent
+    - name: Back up .bashrc
+      copy:
+        force: no
+        remote_src: True
+        src: /home/scott/.bashrc
+        dest: /home/scott/.bashrc.bkp
+    - name: Remove original .bashrc file
+      file: path=/home/scott/.bashrc state=absent
 
-- name: Back up .zshrc
-  become: yes
-  become_user: scott
-  copy:
-    force: no
-    remote_src: True
-    src: /home/scott/.zshrc
-    dest: /home/scott/.zshrc.bkp
-- name: Remove original .zshrc file
-  become: yes
-  become_user: scott
-  file: path=/home/scott/.zshrc state=absent
+    - name: Back up .zshrc
+      copy:
+        force: no
+        remote_src: True
+        src: /home/scott/.zshrc
+        dest: /home/scott/.zshrc.bkp
+    - name: Remove original .zshrc file
+      file: path=/home/scott/.zshrc state=absent
 
-- name: Set up all dotfiles
-  become: yes
+    - name: Set up all dotfiles
+      shell: /usr/bin/stow -S *
+      args:
+        chdir: /home/scott/.dotfiles
+
   become_user: scott
-  shell: /usr/bin/stow -S *
-  args:
-    chdir: /home/scott/.dotfiles

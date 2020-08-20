@@ -3,7 +3,6 @@
 
   tasks:
     - name: Run tests
-      become: yes
       become_user: scott
       script: verify.sh
       check_mode: no

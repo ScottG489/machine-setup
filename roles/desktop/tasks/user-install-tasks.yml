@@ -1,17 +1,17 @@
-- name: Install imgur upload tool
-  become: yes
-  become_user: scott
-  get_url:
-    url: https://raw.githubusercontent.com/tremby/imgur.sh/main/imgur.sh
-    dest: ~/bin/imgur
-    mode: '0775'
+- name: Run all tasks as user
+  block:
+    - name: Install imgur upload tool
+      get_url:
+        url: https://raw.githubusercontent.com/tremby/imgur.sh/main/imgur.sh
+        dest: ~/bin/imgur
+        mode: '0775'
 
-- name: Install xrectsel tool
-  become: yes
+    - name: Install xrectsel tool
+      copy:
+        src: bin/xrectsel/xrectsel
+        dest: ~/bin/
+        owner: scott
+        group: scott
+        mode: '0775'
+
   become_user: scott
-  copy:
-    src: bin/xrectsel/xrectsel
-    dest: ~/bin/
-    owner: scott
-    group: scott
-    mode: '0775'

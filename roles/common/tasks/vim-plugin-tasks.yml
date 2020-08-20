@@ -4,50 +4,40 @@
       - git
       - vim
 
-- name: Clone vundle
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/VundleVim/Vundle.vim.git
-    dest: /home/scott/.vim/bundle/Vundle.vim
+- name: Run all tasks as user
+  block:
+    - name: Clone vundle
+      git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: /home/scott/.vim/bundle/Vundle.vim
 
-- name: Clone vim-airline
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/bling/vim-airline.git
-    dest: /home/scott/.vim/bundle/vim-airline
+    - name: Clone vim-airline
+      git:
+        repo: https://github.com/bling/vim-airline.git
+        dest: /home/scott/.vim/bundle/vim-airline
 
-- name: Clone vim-colors-solarized
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/altercation/vim-colors-solarized.git
-    dest: /home/scott/.vim/bundle/vim-colors-solarized
+    - name: Clone vim-colors-solarized
+      git:
+        repo: https://github.com/altercation/vim-colors-solarized.git
+        dest: /home/scott/.vim/bundle/vim-colors-solarized
 
-- name: Clone vim-easymotion
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/Lokaltog/vim-easymotion.git
-    dest: /home/scott/.vim/bundle/vim-easymotion
+    - name: Clone vim-easymotion
+      git:
+        repo: https://github.com/Lokaltog/vim-easymotion.git
+        dest: /home/scott/.vim/bundle/vim-easymotion
 
-- name: Clone vim-futigive
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/tpope/vim-fugitive.git
-    dest: /home/scott/.vim/bundle/vim-fugitive
+    - name: Clone vim-futigive
+      git:
+        repo: https://github.com/tpope/vim-fugitive.git
+        dest: /home/scott/.vim/bundle/vim-fugitive
 
-- name: Clone vim-sensible
-  become: yes
-  become_user: scott
-  git:
-    repo: https://github.com/tpope/vim-sensible.git
-    dest: /home/scott/.vim/bundle/vim-sensible
+    - name: Clone vim-sensible
+      git:
+        repo: https://github.com/tpope/vim-sensible.git
+        dest: /home/scott/.vim/bundle/vim-sensible
 
-- name: Install vundle plugins
-  become: yes
+    - name: Install vundle plugins
+      shell: |
+        vim +PluginInstall +qall
+
   become_user: scott
-  shell: |
-    vim +PluginInstall +qall
