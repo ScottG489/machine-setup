@@ -9,7 +9,7 @@ dependencies:
       user_files:
         - src: ssh/id_rsa
           dest: /home/scott/.ssh/
-          mode: 0600
+          mode: "0600"
         - src: ssh/known_hosts
           dest: /home/scott/.ssh/
-          mode: 0644
+          mode: "0644"
