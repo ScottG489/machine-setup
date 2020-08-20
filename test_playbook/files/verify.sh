@@ -14,8 +14,16 @@ test_clone() {
   git clone git@github.com:ScottG489/dotfiles.git
 }
 
+test_aws_region() {
+  [ "$(aws ec2 describe-availability-zones \
+    --output text \
+    --query 'AvailabilityZones[0].[RegionName]')" \
+    = 'us-west-2' ]
+}
+
 test_clone
 test_timezone
+test_aws_region
 
 if ((FAILURES == 0)); then
   echo "Test status: SUCCESS"
