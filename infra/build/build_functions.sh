@@ -50,9 +50,17 @@ ansible_deploy() {
 
   cd "$ROOT_DIR"
 
-  ansible-playbook -v -u ubuntu -e ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem --inventory "$INVENTORY", desktop-master-playbook.yml
+  ansible-playbook -v -u ubuntu -e \
+  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  --inventory "$INVENTORY", desktop-master-playbook.yml
   # Run a second time since this playbook should be able to run any number of times against a machine
-  ansible-playbook -v -u ubuntu -e ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem --inventory "$INVENTORY", desktop-master-playbook.yml
+  ansible-playbook -v -u ubuntu -e \
+  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  --inventory "$INVENTORY", desktop-master-playbook.yml
+  # Running the server playbook here only really provides a sanity check since it doesn't run from scratch
+  ansible-playbook -v -u ubuntu -e \
+  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  --inventory "$INVENTORY", server-master-playbook.yml
 }
 
 run_tests() {
