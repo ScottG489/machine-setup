@@ -15,6 +15,7 @@ dependencies:
         - xbindkeys
         - xsel
         - xcompmgr
+        - brightnessctl
         - rxvt-unicode
         - chromium-browser
         - ansible
