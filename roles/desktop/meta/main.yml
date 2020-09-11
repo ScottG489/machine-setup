@@ -21,6 +21,7 @@ dependencies:
         - ansible
         - alsa
         - pulseaudio
+        - pulseaudio-module-bluetooth
         - npm
         - vagrant
         - flameshot
