@@ -1,7 +1,7 @@
 dependencies:
   - role: common
     vars:
-      user_groups: sudo,docker
+      user_groups: sudo,docker,video,input
       install_packages:
         - git
         - zsh
