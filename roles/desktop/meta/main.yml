@@ -22,6 +22,7 @@ dependencies:
         - alsa
         - pulseaudio
         - pulseaudio-module-bluetooth
+        - mplayer
         - npm
         - vagrant
         - flameshot
