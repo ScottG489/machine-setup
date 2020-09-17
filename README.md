@@ -34,6 +34,6 @@ Commenting out lines can speed up your local development. Just be sure not to ch
 ## Misc
 ### Reset Intellij Ultimate trial
 ```bash
-rm -rf .java/.userPrefs .config/JetBrains/IntelliJIdea2020.1/options/other.xml .config/JetBrains/IntelliJIdea2020.1/eval/*
+rm -rf ~/.java/.userPrefs ~/.config/JetBrains/*/options/other.xml ~/.config/JetBrains/*/eval/*
 ```
 See also: https://dstarod.github.io/idea-trial/
