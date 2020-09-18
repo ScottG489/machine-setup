@@ -22,3 +22,11 @@
     rm /tmp/terraform.zip
   args:
     creates: /usr/local/bin/terraform
+
+- name: Install Steam
+  shell: |
+    wget --output-document /tmp/steam.deb https://steamcdn-a.akamaihd.net/client/installer/steam.deb && \
+    dpkg --install /tmp/steam.deb && \
+    rm /tmp/steam.deb
+  args:
+    creates: /bin/steam
