@@ -30,3 +30,9 @@
     rm /tmp/steam.deb
   args:
     creates: /bin/steam
+
+# Note: This is needed because xterm will be used as the default otherwise
+- name: Use urxvt as the default terminal
+  alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/urxvt
