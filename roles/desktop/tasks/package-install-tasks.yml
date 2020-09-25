@@ -8,7 +8,7 @@
     classic: yes
     name:
       - intellij-idea-ultimate
-      - webstorm
+      - datagrip
 
 # TODO: Not working
 #- name: Install gem packages
