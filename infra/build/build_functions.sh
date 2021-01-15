@@ -10,9 +10,9 @@ setup_credentials() {
   local ID_RSA_CONTENTS
   local MAINKEYPAIR_CONTENTS
   local AWS_CREDENTIALS_CONTENTS
-  readonly ID_RSA_CONTENTS=$(echo -n $1 | jq -r .ID_RSA | base64 --decode)
-  readonly MAINKEYPAIR_CONTENTS=$(echo -n $1 | jq -r .MAIN_KEY_PAIR | base64 --decode)
-  readonly AWS_CREDENTIALS_CONTENTS=$(echo -n $1 | jq -r .AWS_CREDENTIALS | base64 --decode)
+  readonly ID_RSA_CONTENTS=$(echo -n "$1" | jq -r .ID_RSA | base64 --decode)
+  readonly MAINKEYPAIR_CONTENTS=$(echo -n "$1" | jq -r .MAIN_KEY_PAIR | base64 --decode)
+  readonly AWS_CREDENTIALS_CONTENTS=$(echo -n "$1" | jq -r .AWS_CREDENTIALS | base64 --decode)
   [[ -n $ID_RSA_CONTENTS ]]
   [[ -n $MAINKEYPAIR_CONTENTS ]]
   [[ -n $AWS_CREDENTIALS_CONTENTS ]]

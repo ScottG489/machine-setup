@@ -2,14 +2,14 @@
 
 readonly IMAGE_NAME='scottg489/machine-setup-build:latest'
 readonly ID_RSA=$1
-readonly AWS_CREDENTIALS=$3
-readonly MAIN_KEY_PAIR=$4
+readonly AWS_CREDENTIALS=$2
+readonly MAIN_KEY_PAIR=$3
 
 read -r -d '' JSON_BODY <<- EOM
   {
   "ID_RSA": "$ID_RSA",
   "AWS_CREDENTIALS": "$AWS_CREDENTIALS",
-  "MAIN_KEY_PAIR": "$MAIN_KEY_PAIR",
+  "MAIN_KEY_PAIR": "$MAIN_KEY_PAIR"
   }
 EOM
 
