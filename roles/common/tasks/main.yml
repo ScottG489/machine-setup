@@ -1,3 +1,7 @@
+- name: Install apt repos
+  include_tasks: apt-repo-install-tasks.yml
+  loop: "{{ install_repos if install_repos is defined else [] }}"
+
 - name: Import package install tasks
   import_tasks: package-install-tasks.yml
 

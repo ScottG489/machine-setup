@@ -2,6 +2,9 @@ dependencies:
   - role: common
     vars:
       user_groups: sudo,docker,video,input
+      install_repos:
+        - key_url: https://dl.google.com/linux/linux_signing_key.pub
+          repo: deb http://dl.google.com/linux/chrome/deb/ stable main
       install_packages:
         - git
         - zsh
@@ -18,6 +21,7 @@ dependencies:
         - brightnessctl
         - rxvt-unicode
         - chromium-browser
+        - google-chrome-stable
         - ansible
         - alsa
         - pulseaudio

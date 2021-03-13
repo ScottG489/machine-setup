@@ -22,9 +22,14 @@ test_aws_region() {
     = 'us-west-2' ]
 }
 
+test_google_chrome_installed() {
+  [ -x "$(command -v google-chrome)" ]
+}
+
 test_clone
 test_timezone
 test_aws_region
+test_google_chrome_installed
 
 if ((FAILURES == 0)); then
   echo "Test status: SUCCESS"

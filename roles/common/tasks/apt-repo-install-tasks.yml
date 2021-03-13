@@ -1,0 +1,7 @@
+- name: Import the Google Linux signing key (apt-key)
+  apt_key:
+    url: "{{ item.key_url }}"
+
+- name: Install Google Chrome apt repository
+  apt_repository:
+    repo: "{{ item.repo }}"
