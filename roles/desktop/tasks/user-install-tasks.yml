@@ -14,4 +14,12 @@
         group: scott
         mode: '0775'
 
+    - name: Install WeeChat scripts
+      shell: |
+        weechat-headless -a \
+        -r '/script install vimode.py' \
+        -r '/script install go.py' \
+        -r '/script install urlselect.lua' \
+        -r '/wait 3 /quit'
+
   become_user: scott

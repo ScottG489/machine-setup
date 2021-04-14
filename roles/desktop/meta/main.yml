@@ -33,6 +33,8 @@ dependencies:
         - dbus-x11
         - libnotify-bin
         - awscli
+        - weechat
+        - weechat-headless
       user_files:
         - src: ssh/id_rsa
           dest: /home/scott/.ssh/
