@@ -8,7 +8,6 @@
     classic: yes
     name:
       - intellij-idea-ultimate
-      - datagrip
 
 - name: Install terraform
   shell: |
