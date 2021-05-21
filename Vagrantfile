@@ -3,6 +3,17 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "scott-vm"
   config.disksize.size = '30GB'
 
+  config.vm.define "linux" do |lin|
+    lin.vm.provider "virtualbox" do |v|
+      v.cpus = 4
+      v.memory = 8000
+    end
+
+    lin.vm.provision "ansible" do |ansible|
+      ansible.playbook = "desktop-master-playbook.yml"
+    end
+  end
+
   config.vm.define "windows" do |win|
     win.vm.provider "virtualbox" do |v|
       v.cpus = 4
