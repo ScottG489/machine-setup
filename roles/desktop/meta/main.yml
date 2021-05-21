@@ -28,6 +28,7 @@ dependencies:
         - pulseaudio-module-bluetooth
         - mplayer
         - npm
+        - virtualbox
         - vagrant
         - flameshot
         - dbus-x11
