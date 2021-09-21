@@ -1,6 +1,6 @@
-- name: Set timezone to US/Pacific
+- name: Set timezone to US/Eastern
   timezone:
-    name: US/Pacific
+    name: US/Eastern
 
 - name: Copy file to set inotify watch limit to be higher (for intellij)
   copy:
