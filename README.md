@@ -5,7 +5,7 @@ This can be run locally on an existing machine by running the following:
 ```bash
 ansible-playbook --ask-become-pass --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 desktop-master-playbook.yml
 ```
-Be sure to change the playbook to the one appropriate for the host system you're running it on
+Be sure to change the playbook to the one appropriate for the host system you're running it on.
 
 Also be sure to put the proper RSA key at `files/ssh/id_rsa`. This is the RSA key which will be put onto the provisioned machine. It's needed to clone github repos such as the dotfile repo.
 
