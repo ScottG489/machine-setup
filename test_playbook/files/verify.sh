@@ -5,7 +5,7 @@ FAILURES=0
 trap 'FAILURES=$((FAILURES+1))' ERR
 
 test_timezone() {
-  [[ "$(date +'%Z')" =~ P(S|D)T ]]
+  [[ "$(date +'%Z')" =~ E(S|D)T ]]
 }
 
 test_clone() {
