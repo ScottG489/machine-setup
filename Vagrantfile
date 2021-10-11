@@ -1,7 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-20.04"
   config.vm.hostname = "scott-vm"
-  config.disksize.size = '30GB'
 
   config.vm.define "linux" do |lin|
     lin.vm.provider "virtualbox" do |v|
