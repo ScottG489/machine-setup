@@ -18,6 +18,7 @@ dependencies:
         - xbindkeys
         - xsel
         - hsetroot
+        - numlockx
         - xcompmgr
         - brightnessctl
         - rxvt-unicode
