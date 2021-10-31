@@ -20,7 +20,7 @@
 - name: Install Steam
   shell: |
     wget --output-document /tmp/steam.deb https://steamcdn-a.akamaihd.net/client/installer/steam.deb && \
-    dpkg --install /tmp/steam.deb && \
+    apt install -y /tmp/steam.deb && \
     rm /tmp/steam.deb
   args:
     creates: /bin/steam
