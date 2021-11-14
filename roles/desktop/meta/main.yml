@@ -20,6 +20,7 @@ dependencies:
         - hsetroot
         - numlockx
         - xcompmgr
+        - redshift
         - brightnessctl
         - rxvt-unicode
         - chromium-browser
