@@ -6,9 +6,6 @@ dependencies:
         - zsh
         - tmux
         - vim
-        - git
-        - virtualbox
-        - awscli
       user_files:
         - src: ssh/id_rsa
           dest: /home/scott/.ssh/
