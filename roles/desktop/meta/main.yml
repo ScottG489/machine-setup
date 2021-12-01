@@ -29,6 +29,7 @@ dependencies:
         - alsa
         - pulseaudio
         - pulseaudio-module-bluetooth
+        - pulsemixer
         - mplayer
         - npm
         - virtualbox
