@@ -13,6 +13,17 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "home-assistant-server" do |lin|
+    lin.vm.provider "virtualbox" do |v|
+      v.cpus = 4
+      v.memory = 4000
+    end
+
+    lin.vm.provision "ansible" do |ansible|
+      ansible.playbook = "home-assistant-server-master-playbook.yml"
+    end
+  end
+
   config.vm.define "windows" do |win|
     win.vm.provider "virtualbox" do |v|
       v.cpus = 4
