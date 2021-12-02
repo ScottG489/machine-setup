@@ -1,0 +1,9 @@
+- name: Check if HAOS VM has already been set up
+  shell: vboxmanage list vms | grep haos-vm
+  register: result
+  ignore_errors: true
+
+- name: Set up HAOS VM
+  shell: |
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/scottg489/home-assistant/master/create-haos-vm.sh)" << EOF
+  when: result is failed

@@ -1,0 +1,8 @@
+- name: Import package install tasks
+  import_tasks: package-install-tasks.yml
+
+- name: Import haos setup tasks
+  import_tasks: haos-setup-tasks.yml
+
+- name: Import system setup tasks
+  import_tasks: system-setup-tasks.yml
