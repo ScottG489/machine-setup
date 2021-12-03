@@ -1,0 +1,21 @@
+[Unit]
+Description=Manage HAOS VM
+After=network.target vboxdrv.service
+Before=runlevel2.target shutdown.target
+
+[Service]
+User=scott
+Group=vboxusers
+Type=forking
+Restart=no
+TimeoutSec=3min
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=no
+RemainAfterExit=yes
+
+ExecStart=/usr/bin/VBoxManage startvm haos-vm --type headless
+ExecStop=/usr/bin/VBoxManage controlvm haos-vm acpipowerbutton
+
+[Install]
+WantedBy=multi-user.target

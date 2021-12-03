@@ -1,9 +1,31 @@
-- name: Check if HAOS VM has already been set up
-  shell: vboxmanage list vms | grep haos-vm
-  register: result
-  ignore_errors: true
+- name: Add user to vboxusers group
+  user:
+    name: scott
+    groups: "vboxusers"
+    append: yes
 
-- name: Set up HAOS VM
-  shell: |
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/scottg489/home-assistant/master/create-haos-vm.sh)" << EOF
-  when: result is failed
+- name: Run tasks as user
+  block:
+    - name: Check if HAOS VM has already been set up
+      shell: vboxmanage list vms | grep haos-vm
+      register: create_haos_vm_result
+      ignore_errors: true
+
+    - name: Set up HAOS VM
+      shell: |
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/scottg489/home-assistant/master/create-haos-vm.sh)" << EOF
+      when: create_haos_vm_result is failed
+
+  become_user: scott
+
+- name: Copy service file for service to manage HAOS VM
+  copy:
+    src: vbox/haos-vm.service
+    dest: /etc/systemd/system/haos-vm.service
+
+- name: Enable service to manage HAOS VM
+  ansible.builtin.systemd:
+    name: haos-vm
+    state: started
+    enabled: yes
+    daemon_reload: yes
