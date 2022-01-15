@@ -33,6 +33,14 @@ Commenting out lines can speed up your local development. Just be sure not to ch
 
 ## Misc
 ### Reset Intellij Ultimate trial
+Make sure you're on a version < `2021.2.3`. This installs the latest version before than on Ubuntu:
+```shell
+sudo snap refresh --channel 2021.1/stable intellij-idea-ultimate --classic
+```
+See [this JetBrains blog post](https://blog.jetbrains.com/blog/2021/09/30/moving-to-jetbrains-account-for-trials-of-ides-and-net-tools/)
+for more details.
+
+Then run this to reset the trial.
 ```bash
 rm -rf ~/.java/.userPrefs ~/.config/JetBrains/*/options/other.xml ~/.config/JetBrains/*/eval/*
 ```
