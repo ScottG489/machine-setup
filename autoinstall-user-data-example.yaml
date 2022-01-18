@@ -1,0 +1,22 @@
+#cloud-config
+autoinstall:
+  identity:
+    hostname: my-hostname
+    username: myusername
+    password: encrypted-password
+    realname: Real Name
+  network:
+    ethernets:
+      ethernetdevicename:
+        dhcp4: true
+    version: 2
+    wifis:
+      wifidevicename:
+        access-points:
+          wifi-ap-name:
+            password: 'wifipassword'
+        dhcp4: true
+  ssh:
+    allow-pw: true
+    install-server: true
+  version: 1

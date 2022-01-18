@@ -5,6 +5,10 @@ This can be run locally on an existing machine by running the following:
 ```bash
 ansible-playbook --ask-become-pass --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 desktop-master-playbook.yml
 ```
+Or to run it on a remote machine, something like this:
+```shell
+ansible-playbook --ask-pass --ask-become-pass --inventory 1.2.3.123, home-assistant-server-master-playbook.yml
+```
 Be sure to change the playbook to the one appropriate for the host system you're running it on.
 
 Also be sure to put the proper RSA key at `files/ssh/id_rsa`. This is the RSA key which will be put onto the provisioned machine. It's needed to clone github repos such as the dotfile repo.
@@ -20,6 +24,22 @@ On Windows, you'll need to shut down the machine and adjust 2 things under the '
 2. Change the 'Graphics Controller' to 'VMSVGA'
 
 Start up the VM, then you'll need to set the resolution under the View menu dropdown. This should stick across reboots. It's possible something may also need to be done with `xrandr` as well, but I didn't have to this time.
+
+## Ubuntu USB auto-installer
+This will create a USB flash drive that will auto install an Ubuntu system.
+
+First, copy `autoinstall-user-data-example.yaml` to `autoinstall-user-data.yaml` and modify it accordingly.
+Then generate the auto-installer ISO:
+```shell
+git clone git@github.com:covertsh/ubuntu-autoinstall-generator.git && cd ubuntu-autoinstall-generator
+wget http://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso
+./ubuntu-autoinstall-generator.sh -a -k -u ./autoinstall-user-data.yaml -s ./ubuntu-20.04.3-live-server-amd64.iso -d ubuntu-autoinstall.iso
+```
+Then write it to a flash drive (e.g. /dev/sdc) using `sudo dd if=ubuntu-autoinstall.iso of=/dev/sdx`.
+Make sure to change the above device path and **always triple check you're writing to the correct device**.
+
+More info on autoinstall can be found here:
+https://ubuntu.com/server/docs/install/autoinstall
 
 ## Development
 To fully test your changes run `./test.sh` at the root of the project. However, first make sure to change the file locations of the secrets to your actual locations.

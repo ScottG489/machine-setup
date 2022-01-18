@@ -2,6 +2,8 @@ files/ssh/id_rsa
 files/ssh/mainkeypair.pem
 files/aws/credentials
 
+autoinstall-user-data.yaml
+
 *.swp
 
 .vagrant
