@@ -21,6 +21,7 @@ dependencies:
         - numlockx
         - xcompmgr
         - redshift
+        - ddcutil
         - brightnessctl
         - rxvt-unicode
         - chromium-browser
