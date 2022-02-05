@@ -8,7 +8,7 @@ mkdir -p ~/home-assistant
 cd home-assistant
 
 # Note that latest version may differ
-wget --progress=bar:force:noscroll https://github.com/home-assistant/operating-system/releases/download/6.6/haos_ova-6.6.vmdk.zip
+wget --progress=bar:force:noscroll https://github.com/home-assistant/operating-system/releases/download/7.2/haos_ova-7.2.vmdk.zip
 unzip haos_ova-6.6.vmdk.zip
 
 VM_UUID=$(vboxmanage createvm --name haos-vm --default --register --ostype Linux_64 | grep UUID | awk '{print $2}')
