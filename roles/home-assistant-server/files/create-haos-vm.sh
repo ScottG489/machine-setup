@@ -3,7 +3,9 @@ set -ex
 
 [[ -n "$1" ]] && VM_MEMORY=$1 || VM_MEMORY=4096
 
-# Note that bridgeadapter may differ
+cd
+mkdir -p ~/home-assistant
+cd home-assistant
 
 # Note that latest version may differ
 wget --progress=bar:force:noscroll https://github.com/home-assistant/operating-system/releases/download/6.6/haos_ova-6.6.vmdk.zip
