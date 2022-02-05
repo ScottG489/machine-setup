@@ -12,9 +12,7 @@
       ignore_errors: true
 
     - name: Set up HAOS VM
-      shell: |
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/scottg489/home-assistant/master/create-haos-vm.sh)" << EOF
-      when: create_haos_vm_result is failed
+      script: files/create-haos-vm.sh
 
   become_user: scott
 
