@@ -1,3 +1,10 @@
+- name: Accept virtualbox-ext-pack select license
+  debconf:
+    name: virtualbox-ext-pack
+    question: virtualbox-ext-pack/license
+    value: 'true'
+    vtype: select
+
 - name: Install packages
   package:
     name: "{{ install_packages }}"
