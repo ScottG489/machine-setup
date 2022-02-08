@@ -16,6 +16,7 @@
 
     - name: Set up HAOS VM
       script: files/create-haos-vm.sh
+      when: create_haos_vm_result is failed
 
   become_user: scott
 
