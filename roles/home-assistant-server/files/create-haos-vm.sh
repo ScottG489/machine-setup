@@ -20,5 +20,6 @@ vboxmanage storageattach "$VM_UUID" --storagectl IDE --port 0 --device 0 --type 
 #vboxmanage usbfilter add 0 --name "Bluetooth USB device filter" --target haos-vm --vendorid "$BLUETOOTH_USB_DEVICE_VENDOR_ID" --productid "$BLUETOOTH_USB_DEVICE_PRODUCT_ID"
 
 #vboxmanage startvm --type headless "$VM_UUID"
+#vboxmanage controlvm haos-vm pause
 #vboxmanage showvminfo --machinereadable $VM_UUID --details
 #vboxmanage unregistervm $VM_UUID --delete
