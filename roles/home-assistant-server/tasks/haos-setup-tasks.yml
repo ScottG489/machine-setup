@@ -31,3 +31,21 @@
     state: started
     enabled: yes
     daemon_reload: yes
+
+- name: Copy script for service to persist wake on LAN
+  copy:
+    src: bin/persist-wol/persist-wol.sh
+    dest: /usr/local/bin/persist-wol.sh
+    mode: '0775'
+
+- name: Copy service file for service to persist wake on LAN
+  copy:
+    src: wakeonlan/persist-wol.service
+    dest: /etc/systemd/system/persist-wol.service
+
+- name: Enable WOL persist service
+  ansible.builtin.systemd:
+    name: persist-wol
+    state: started
+    enabled: yes
+    daemon_reload: yes
