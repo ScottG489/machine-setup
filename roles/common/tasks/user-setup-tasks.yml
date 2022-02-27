@@ -32,6 +32,12 @@
         chdir: /home/scott/
         creates: ~/.oh-my-zsh
 
+    - name: Clone powerlevel10k (zsh shell theme)
+      git:
+        repo: https://github.com/romkatv/powerlevel10k.git
+        dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+        depth: 1
+
     - name: Clone tmux package manager (tpm)
       git:
         repo: https://github.com/tmux-plugins/tpm
