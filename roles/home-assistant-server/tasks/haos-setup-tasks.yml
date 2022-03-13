@@ -3,9 +3,9 @@
     name: scott
     groups: "vboxusers"
     append: yes
+
 - name: Reset SSH connection to allow VBox to discover USB devices and for group changes to apply
-  ansible.builtin.meta:
-    reset_connection
+  meta: reset_connection
 
 - name: Run tasks as user
   block:
