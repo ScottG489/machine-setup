@@ -1,3 +1,20 @@
 - name: Set timezone to US/Eastern
   timezone:
     name: US/Eastern
+
+- name: Add grub menu entry for USB ubuntu autoinstaller
+  blockinfile:
+    insertafter: EOF
+    backup: true
+    block: "{{ lookup('file', './grub/40_custom.append') }}"
+    path: /etc/grub.d/40_custom
+
+- name: Save grub selections for next boot
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_DEFAULT=0'
+    line: GRUB_DEFAULT=saved
+
+- name: Update grub.cfg
+  shell: |
+    update-grub

@@ -1,0 +1,4 @@
+menuentry "Ubuntu autoinstall" {
+    search --set=root --label ubuntu-autoinstall-2022-03-12
+    configfile /boot/grub/grub.cfg
+}
