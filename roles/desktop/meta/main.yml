@@ -57,3 +57,7 @@ dependencies:
         - src: aws/credentials
           dest: /home/scott/.aws/
           mode: "0664"
+      system_files:
+        - src: sudoers/power-control
+          dest: /etc/sudoers.d/
+          mode: "0440"

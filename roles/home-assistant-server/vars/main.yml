@@ -5,3 +5,8 @@ install_packages:
   - bluez
 
 haos_vm_memory_mb: 4096
+
+system_files:
+  - src: sudoers/power-control
+    dest: /etc/sudoers.d/
+    mode: "0440"
