@@ -1,0 +1,8 @@
+- name: Copy system files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"  # Trailing slash needed to create dirs if they don't exist
+    owner: root
+    group: root
+    mode: "{{ item.mode }}"
+  with_items: "{{ system_files }}"

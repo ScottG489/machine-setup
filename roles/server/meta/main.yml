@@ -13,3 +13,6 @@ dependencies:
         - src: ssh/known_hosts
           dest: /home/scott/.ssh/
           mode: "0644"
+        - src: ssh/authorized_keys
+          dest: /home/scott/.ssh/
+          mode: "0600"
