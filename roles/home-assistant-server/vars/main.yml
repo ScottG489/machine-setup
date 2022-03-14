@@ -3,3 +3,5 @@ install_packages:
   - virtualbox-ext-pack
   - unzip
   - bluez
+
+haos_vm_memory_mb: 4096
