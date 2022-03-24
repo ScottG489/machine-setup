@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-20.04"
   config.vm.hostname = "scott-vm"
 
-  config.vm.define "linux" do |lin|
+  config.vm.define "desktop" do |lin|
     lin.vm.provider "virtualbox" do |v|
       v.cpus = 4
       v.memory = 8000
@@ -10,6 +10,17 @@ Vagrant.configure("2") do |config|
 
     lin.vm.provision "ansible" do |ansible|
       ansible.playbook = "desktop-master-playbook.yml"
+    end
+  end
+
+  config.vm.define "server" do |lin|
+    lin.vm.provider "virtualbox" do |v|
+      v.cpus = 4
+      v.memory = 4000
+    end
+
+    lin.vm.provision "ansible" do |ansible|
+      ansible.playbook = "server-master-playbook.yml"
     end
   end
 
