@@ -33,7 +33,7 @@ Then generate the auto-installer ISO:
 ```shell
 git clone git@github.com:covertsh/ubuntu-autoinstall-generator.git && cd ubuntu-autoinstall-generator
 wget http://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso
-./ubuntu-autoinstall-generator.sh -a -k -u ./autoinstall-user-data.yaml -s ./ubuntu-20.04.3-live-server-amd64.iso -d ubuntu-autoinstall.iso
+./ubuntu-autoinstall-generator.sh -a -k -u ../autoinstall-user-data.yaml -s ./ubuntu-20.04.3-live-server-amd64.iso -d ubuntu-autoinstall.iso
 ```
 Then write it to a flash drive (e.g. /dev/sdc) using `sudo dd if=ubuntu-autoinstall.iso of=/dev/sdx`.
 Make sure to change the above device path and **always triple check you're writing to the correct device**.
