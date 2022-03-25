@@ -5,4 +5,4 @@
     owner: root
     group: root
     mode: "{{ item.mode }}"
-  with_items: "{{ system_files }}"
+  loop: "{{ system_files }}"
