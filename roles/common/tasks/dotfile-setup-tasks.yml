@@ -12,23 +12,33 @@
         dest: /home/scott/.dotfiles
         update: no
 
+    - name: Check if ~/.bashrc exists
+      stat: path=/home/scott/.bashrc
+      register: bashrc_file
     - name: Back up .bashrc
       copy:
         force: no
         remote_src: True
         src: /home/scott/.bashrc
         dest: /home/scott/.bashrc.bkp
+      when: bashrc_file.stat.exists
     - name: Remove original .bashrc file
       file: path=/home/scott/.bashrc state=absent
+      when: bashrc_file.stat.exists
 
+    - name: Check if ~/.zshrc exists
+      stat: path=/home/scott/.zshrc
+      register: zshrc_file
     - name: Back up .zshrc
       copy:
         force: no
         remote_src: True
         src: /home/scott/.zshrc
         dest: /home/scott/.zshrc.bkp
+      when: zshrc_file.stat.exists
     - name: Remove original .zshrc file
       file: path=/home/scott/.zshrc state=absent
+      when: zshrc_file.stat.exists
 
     - name: Set up all dotfiles
       shell: /usr/bin/stow -S *
