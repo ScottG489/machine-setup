@@ -9,7 +9,6 @@ dependencies:
         - git
         - zsh
         - vim
-        - docker.io
         - tmux
         - default-jdk
         - ruby
