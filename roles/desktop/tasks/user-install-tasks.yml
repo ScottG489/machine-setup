@@ -17,6 +17,7 @@
     - name: Install WeeChat scripts
       shell: |
         weechat-headless -a \
+        --stdout \
         -r '/script install vimode.py' \
         -r '/script install go.py' \
         -r '/script install urlselect.lua' \
