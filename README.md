@@ -42,7 +42,13 @@ More info on autoinstall can be found here:
 https://ubuntu.com/server/docs/install/autoinstall
 
 ## Development
-To fully test your changes run `./test.sh` at the root of the project. However, first make sure to change the file locations of the secrets to your actual locations.
+To fully test your changes run `./test.sh` at the root of the project. However, first make sure to change
+the file locations of the secrets to your actual locations.
+
+You can also test locally using something like the following:
+```shell
+vagrant provision desktop --provision-with test
+```
 
 Note that you'll need to comment out the `git clone` in `run.sh` otherwise it will fail since you've mounted a directory where it will attempt to clone to.
 

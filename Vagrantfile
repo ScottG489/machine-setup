@@ -8,8 +8,12 @@ Vagrant.configure("2") do |config|
       v.memory = 8000
     end
 
-    lin.vm.provision "ansible" do |ansible|
+    lin.vm.provision "ansible", type: "ansible" do |ansible|
       ansible.playbook = "desktop-master-playbook.yml"
+    end
+
+    lin.vm.provision "test", type: "ansible" do |ansible|
+      ansible.playbook = "test_playbook/test-playbook.yml"
     end
   end
 
