@@ -18,3 +18,12 @@
 - name: Update grub.cfg
   shell: |
     update-grub
+
+- name: Copy system files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"  # Trailing slash needed to create dirs if they don't exist
+    owner: root
+    group: root
+    mode: "{{ item.mode }}"
+  loop: "{{ system_files }}"
