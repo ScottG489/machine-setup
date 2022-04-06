@@ -2,6 +2,7 @@
   user:
     name: scott
     groups: "{{ user_groups }}"
+    append: yes
     shell: /bin/zsh
 
 - name: Run all tasks as user

@@ -9,6 +9,28 @@
     name:
       - intellij-idea-ultimate
 
+- name: Import the Docker signing key (apt-key)
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: Install Docker apt repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+
+- name: Install docker packages
+  package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+
+- name: Add user to docker group
+  user:
+    name: scott
+    groups: "docker"
+    append: yes
+    shell: /bin/zsh
+
 - name: Install terraform
   shell: |
     curl https://releases.hashicorp.com/terraform/0.14.0/terraform_0.14.0_linux_amd64.zip -o /tmp/terraform.zip && \

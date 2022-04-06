@@ -1,7 +1,7 @@
 dependencies:
   - role: common
     vars:
-      user_groups: sudo,docker,video,input,dialout,i2c
+      user_groups: sudo,video,input,dialout,i2c
       install_repos:
         - key_url: https://dl.google.com/linux/linux_signing_key.pub
           repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
