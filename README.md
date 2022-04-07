@@ -7,7 +7,7 @@ ansible-playbook --ask-become-pass --connection=local --inventory 127.0.0.1, --l
 ```
 Or to run it on a remote machine, something like this:
 ```shell
-ansible-playbook --ask-pass --ask-become-pass --inventory 1.2.3.123, home-assistant-server-master-playbook.yml
+ansible-playbook --ask-pass --ask-become-pass --extra-vars 'haos_vm_memory_mb=3072' --inventory 1.2.3.123, home-assistant-server-master-playbook.yml
 ```
 Be sure to change the playbook to the one appropriate for the host system you're running it on.
 
