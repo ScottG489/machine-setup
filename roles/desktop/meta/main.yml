@@ -37,6 +37,7 @@ dependencies:
         - flameshot
         - dbus-x11
         - libnotify-bin
+        - solaar
         - awscli
         - weechat
         - weechat-headless
@@ -58,5 +59,8 @@ dependencies:
           mode: "0664"
       system_files:
         - src: sudoers/power-control
+          dest: /etc/sudoers.d/
+          mode: "0440"
+        - src: sudoers/solaar
           dest: /etc/sudoers.d/
           mode: "0440"
