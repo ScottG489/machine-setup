@@ -1,6 +1,6 @@
 name = "machine-setup-test"
 ami = "ami-0add11538295130e3" // 21.04 (hirsute) (amd64)
-instance_type = "t2.medium"
+instance_type = "t3.medium"
 spot_type = "one-time"
 spot_price = "0.03"
 volume_size = 8
