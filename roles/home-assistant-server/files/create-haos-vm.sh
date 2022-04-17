@@ -3,7 +3,7 @@ set -ex
 
 [[ -n "$1" ]] && VM_MEMORY=$1 || VM_MEMORY=4096
 
-readonly HAOS_VERSION=7.2
+readonly HAOS_VERSION=7.6
 
 cd
 mkdir -p ~/home-assistant
