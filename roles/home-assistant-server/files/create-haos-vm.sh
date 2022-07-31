@@ -26,3 +26,12 @@ vboxmanage storageattach "$VM_UUID" --storagectl IDE --port 0 --device 0 --type 
 #vboxmanage controlvm haos-vm pause
 #vboxmanage showvminfo --machinereadable $VM_UUID --details
 #vboxmanage unregistervm $VM_UUID --delete
+
+# Resize example commands
+#vboxmanage clonemedium haos_ova-8.4.vmdk haos_ova-tmp.vdi --format vdi
+#vboxmanage modifymedium haos_ova-tmp.vdi --resize 100000
+#vboxmanage clonemedium haos_ova-tmp.vdi haos_ova.vmdk --format vmdk
+
+#vboxmanage modifyvm haos-vm --name haos-vm-old
+#vboxmanage createvm --name haos-vm --default --register --ostype Linux_64 && vboxmanage modifyvm haos-vm --firmware efi --nic1 bridged --bridgeadapter1 enp0s25 --memory 3072
+#vboxmanage storageattach haos-vm --storagectl IDE --port 0 --device 0 --type hdd --medium haos_ova.vmdk
