@@ -16,7 +16,7 @@ set -x
 declare -r _PROJECT_NAME='machine-setup'
 declare -r _GIT_REPO='git@github.com:ScottG489/machine-setup.git'
 
-#git clone $_GIT_REPO
+git clone $_GIT_REPO
 cd $_PROJECT_NAME
 
 # TODO: This is a bit hacky. It seems clean enough to copy this file into place where the playbook
