@@ -13,10 +13,6 @@ set +x
 setup_credentials "$1"
 set -x
 
-# Start the docker daemon. This is necessary when using the sysbox-runc container runtime rather than mounting docker.sock
-dockerd > /var/log/dockerd.log 2>&1 &
-sleep 3
-
 declare -r _PROJECT_NAME='machine-setup'
 declare -r _GIT_REPO='git@github.com:ScottG489/machine-setup.git'
 
