@@ -13,4 +13,7 @@ MAINKEYPAIR_CONTENTS_BASE64=$(base64 ~/.ssh/mainkeypair.pem | tr -d '\n') ;
 [[ -n $MAINKEYPAIR_CONTENTS_BASE64 ]]
 
 docker build infra/build -t machine-setup-test && \
-docker run -it --volume "$PWD:/opt/build/machine-setup" machine-setup-test '{"ID_RSA": "'"$ID_RSA_CONTENTS_BASE64"'", "AWS_CREDENTIALS": "'"$AWS_CREDENTIALS_CONTENTS_BASE64"'", "MAIN_KEY_PAIR": "'"$MAINKEYPAIR_CONTENTS_BASE64"'"}'
+docker run -it \
+  --volume "$PWD:/home/build-user/build/machine-setup" \
+  machine-setup-test \
+  '{"ID_RSA": "'"$ID_RSA_CONTENTS_BASE64"'", "AWS_CREDENTIALS": "'"$AWS_CREDENTIALS_CONTENTS_BASE64"'", "MAIN_KEY_PAIR": "'"$MAINKEYPAIR_CONTENTS_BASE64"'"}'

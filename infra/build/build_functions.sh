@@ -17,12 +17,12 @@ setup_credentials() {
   [[ -n $MAINKEYPAIR_CONTENTS ]]
   [[ -n $AWS_CREDENTIALS_CONTENTS ]]
 
-  printf -- "$ID_RSA_CONTENTS" >/root/.ssh/id_rsa
-  printf -- "$MAINKEYPAIR_CONTENTS" >/root/.ssh/mainkeypair.pem
-  printf -- "$AWS_CREDENTIALS_CONTENTS" >/root/.aws/credentials
+  printf -- "$ID_RSA_CONTENTS" > $HOME/.ssh/id_rsa
+  printf -- "$MAINKEYPAIR_CONTENTS" > $HOME/.ssh/mainkeypair.pem
+  printf -- "$AWS_CREDENTIALS_CONTENTS" > $HOME/.aws/credentials
 
-  chmod 400 /root/.ssh/id_rsa
-  chmod 400 /root/.ssh/mainkeypair.pem
+  chmod 400 $HOME/.ssh/id_rsa
+  chmod 400 $HOME/.ssh/mainkeypair.pem
 }
 
 tf_apply() {
@@ -54,15 +54,15 @@ ansible_deploy() {
   cd "$ROOT_DIR"
 
   ansible-playbook -v -u ubuntu -e \
-  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  ansible_ssh_private_key_file=$HOME/.ssh/mainkeypair.pem \
   --inventory "$INVENTORY", desktop-master-playbook.yml
   # Run a second time since this playbook should be able to run any number of times against a machine
   ansible-playbook -v -u ubuntu -e \
-  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  ansible_ssh_private_key_file=$HOME/.ssh/mainkeypair.pem \
   --inventory "$INVENTORY", desktop-master-playbook.yml
   # Running the server playbook here only really provides a sanity check since it doesn't run from scratch
   ansible-playbook -v -u ubuntu -e \
-  ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem \
+  ansible_ssh_private_key_file=$HOME/.ssh/mainkeypair.pem \
   --inventory "$INVENTORY", server-master-playbook.yml
 }
 
@@ -80,5 +80,5 @@ run_tests() {
 
   cd "$ROOT_DIR"
 
-  ansible-playbook -v -u ubuntu -e ansible_ssh_private_key_file=/root/.ssh/mainkeypair.pem --inventory "$INVENTORY", test_playbook/test-playbook.yml
+  ansible-playbook -v -u ubuntu -e ansible_ssh_private_key_file=$HOME/.ssh/mainkeypair.pem --inventory "$INVENTORY", test_playbook/test-playbook.yml
 }
