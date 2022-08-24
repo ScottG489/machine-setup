@@ -1,5 +1,5 @@
 name = "machine-setup-test"
-ami = "ami-0add11538295130e3" // 21.04 (hirsute) (amd64)
+ami = "ami-06f29effee622eb00" // ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220810
 instance_type = "t3.medium"
 spot_type = "one-time"
 spot_price = "0.03"

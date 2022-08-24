@@ -10,7 +10,7 @@
     - name: Update apt
       raw: apt update ; apt update
     - name: Install python2 (needed for ansible) and acl for timezone setup
-      raw: apt install -y python acl
+      raw: apt install -y python3 acl
 
   tasks:
   # Necessary because we turn it off for python install pre_task
