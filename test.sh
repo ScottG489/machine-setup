@@ -5,12 +5,14 @@ declare ID_RSA_CONTENTS_BASE64
 declare AWS_CREDENTIALS_CONTENTS_BASE64
 declare MAINKEYPAIR_CONTENTS_BASE64
 # Change the location of these files based on where they are on your system
+set +x
 ID_RSA_CONTENTS_BASE64=$(base64 ~/.ssh/id_rsa | tr -d '\n') ;
 AWS_CREDENTIALS_CONTENTS_BASE64=$(base64 ~/.aws/credentials | tr -d '\n') ;
 MAINKEYPAIR_CONTENTS_BASE64=$(base64 ~/.ssh/mainkeypair.pem | tr -d '\n') ;
 [[ -n $ID_RSA_CONTENTS_BASE64 ]]
 [[ -n $AWS_CREDENTIALS_CONTENTS_BASE64 ]]
 [[ -n $MAINKEYPAIR_CONTENTS_BASE64 ]]
+set -x
 
 docker build infra/build -t machine-setup-test && \
 docker run -it \
