@@ -3,7 +3,7 @@ set -ex
 
 [[ -n "$1" ]] && VM_MEMORY=$1 || VM_MEMORY=4096
 
-readonly HAOS_VERSION=8.2
+readonly HAOS_VERSION=$(curl -Ss 'https://api.github.com/repos/home-assistant/operating-system/releases/latest' | jq --raw-output '.tag_name')
 
 cd
 mkdir -p ~/home-assistant
