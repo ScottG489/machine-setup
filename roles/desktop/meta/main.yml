@@ -27,6 +27,7 @@ dependencies:
         - google-chrome-stable
         - ansible
         - alsa
+        - pm-utils
         - pulseaudio
         - pulseaudio-module-bluetooth
         - pulsemixer
