@@ -1,1 +1,1 @@
-scott    ALL=NOPASSWD:/sbin/reboot, /usr/sbin/shutdown, /usr/sbin/grub-reboot
+scott    ALL=NOPASSWD:/sbin/reboot, /usr/sbin/shutdown, /usr/sbin/grub-reboot, /usr/sbin/pm-suspend
