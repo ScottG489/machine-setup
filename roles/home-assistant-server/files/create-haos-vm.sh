@@ -27,6 +27,9 @@ vboxmanage storageattach "$VM_UUID" --storagectl IDE --port 0 --device 0 --type 
 #vboxmanage showvminfo --machinereadable $VM_UUID --details
 #vboxmanage unregistervm $VM_UUID --delete
 
+# Safely shut down VM ("This command has the same effect on a VM as pressing the Power button on a physical computer.")
+# vboxmanage controlvm haos-vm acpipowerbutton
+
 # Resize example commands
 #vboxmanage clonemedium haos_ova-8.4.vmdk haos_ova-tmp.vdi --format vdi
 #vboxmanage modifymedium haos_ova-tmp.vdi --resize 100000
