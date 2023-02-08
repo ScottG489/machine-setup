@@ -17,7 +17,14 @@ After run login to machine as the user 'vagrant' with the default password of 'v
 
 After logging in run `startx` to start the X Window System.
 
-If there are issues with setting the resolution properly then make sure the proper VirtualBox guest additions are installed on the guest. Note that this isn't necessary if running on a mac as parallels should be used.
+If there are issues with setting the resolution properly then make sure the proper VirtualBox guest additions are
+installed on the guest. Note that this isn't necessary if running on a mac as parallels should be used.
+To use parallels ensure the plugin is installed before bringing up the VM:
+```shell
+vagrant plugin install vagrant-parallels
+```
+You also need a properly licensed version of parallels and may need to specify `--provider=parallels` on the command
+line if you have other providers installed (e.g. vbox).
 
 On Windows, you'll need to shut down the machine and adjust 2 things under the 'Display' settings for the VM.
 1. Increase the 'Video Memory' (I increased it to 32 MB)
