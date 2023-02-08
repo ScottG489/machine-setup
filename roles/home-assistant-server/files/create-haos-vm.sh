@@ -14,6 +14,13 @@ wget --progress=bar:force:noscroll \
 https://github.com/home-assistant/operating-system/releases/download/$HAOS_VERSION/haos_ova-$HAOS_VERSION.vmdk.zip
 unzip haos_ova-$HAOS_VERSION.vmdk.zip
 
+readonly DISK_FILENAME="haos_ova-$HAOS_VERSION.vmdk"
+readonly TEMP_RESIZE_DISK_UUID=$(vboxmanage clonemedium "$DISK_FILENAME" haos_ova-tmp.vdi --format vdi | sed 's/.*UUID: //' | tr -d '\n')
+vboxmanage closemedium disk --delete "$DISK_FILENAME"
+vboxmanage modifymedium "$TEMP_RESIZE_DISK_UUID" --resize 80000
+vboxmanage clonemedium "$TEMP_RESIZE_DISK_UUID" "$DISK_FILENAME" --format vmdk
+vboxmanage closemedium disk --delete "$TEMP_RESIZE_DISK_UUID"
+
 VM_UUID=$(vboxmanage createvm --name haos-vm --default --register --ostype Linux_64 | grep UUID | awk '{print $2}')
 NET_DEVICE=$(ip link | grep -v 'lo\|vir\|wl\|^[^0-9]' | awk '{print $2}' | sed 's/.$//' | head -1)
 #BLUETOOTH_USB_DEVICE_VENDOR_ID=$(vboxmanage list usbhost | grep VendorId | head -1 | awk '{print $2}')
