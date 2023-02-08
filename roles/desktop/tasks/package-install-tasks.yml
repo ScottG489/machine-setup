@@ -6,6 +6,7 @@
 - name: Install snap packages
   snap:
     classic: yes
+    channel: 2021.1/stable
     name:
       - intellij-idea-ultimate
 
