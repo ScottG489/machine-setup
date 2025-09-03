@@ -6,7 +6,6 @@
 - name: Install Intellij snap package
   snap:
     classic: yes
-    channel: 2021.1/stable
     name:
       - intellij-idea-ultimate
 - name: Install aws cli snap package
