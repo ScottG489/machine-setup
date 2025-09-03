@@ -1,11 +1,10 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
-ENV HOME="/home/build-user"
+ENV HOME="/home/ubuntu"
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
   git \
-  awscli \
   ansible \
   jq \
   curl \
@@ -15,8 +14,12 @@ RUN curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linu
   unzip -d /usr/local/bin /tmp/terraform.zip && \
   rm /tmp/terraform.zip
 
-RUN useradd -m -u 1000 -s /usr/bin/bash build-user
-USER build-user
+RUN mkdir /tmp/awscli && \
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" && \
+  unzip -d /tmp/awscli /tmp/awscliv2.zip && \
+  /tmp/awscli/aws/install
+
+USER ubuntu
 
 RUN mkdir $HOME/.ssh
 COPY known_hosts $HOME/.ssh/known_hosts
