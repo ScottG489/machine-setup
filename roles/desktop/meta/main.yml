@@ -24,24 +24,25 @@ dependencies:
         - ddcutil
         - brightnessctl
         - rxvt-unicode
-        - chromium-browser
         - google-chrome-stable
-        - ansible
         - alsa
         - pm-utils
         - pulseaudio
         - pulseaudio-module-bluetooth
         - pulsemixer
         - mplayer
-        - npm
-        - virtualbox
-        - vagrant
         - flameshot
         - dbus-x11
         - libnotify-bin
         - solaar
         - weechat
         - weechat-headless
+        - lshw
+        - upower
+        - python3
+        - python3-pip
+        - python3-setuptools
+        - python3-wheel
       user_files:
         - src: ssh/id_rsa
           dest: /home/scott/.ssh/
