@@ -4,14 +4,8 @@
   #remote_user: root
   roles:
     - desktop
-  gather_facts: no
+  gather_facts: true
   pre_tasks:
-    - name: Update apt
-      raw: apt update ; apt update
-    - name: Install python2 (needed for ansible) and acl for timezone setup
-      raw: DEBIAN_FRONTEND=noninteractive apt install -y python3 acl
-
-  tasks:
-  # Necessary because we turn it off for python install pre_task
-  - name: Gathering facts
-    setup:
+    - name: Install acl package (needed for permission controls)
+      package:
+        name: "acl"

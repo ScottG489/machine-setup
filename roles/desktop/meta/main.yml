@@ -3,8 +3,9 @@ dependencies:
     vars:
       user_groups: sudo,video,input,dialout,i2c
       install_repos:
-        - key_url: https://dl.google.com/linux/linux_signing_key.pub
-          repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+        - name: google
+          uris: "http://dl.google.com/linux/chrome/deb"
+          signed_by: https://dl.google.com/linux/linux_signing_key.pub
       install_packages:
         - git
         - zsh
@@ -39,7 +40,6 @@ dependencies:
         - dbus-x11
         - libnotify-bin
         - solaar
-        - awscli
         - weechat
         - weechat-headless
       user_files:

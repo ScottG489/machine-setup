@@ -3,20 +3,32 @@
     name:
       - unzip
 
-- name: Install snap packages
+- name: Install Intellij snap package
   snap:
     classic: yes
     channel: 2021.1/stable
     name:
       - intellij-idea-ultimate
+- name: Install aws cli snap package
+  snap:
+    classic: yes
+    name:
+      - aws-cli
 
-- name: Import the Docker signing key (apt-key)
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+- name: Add Docker Module Repository
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: [deb]
+    uris: "https://download.docker.com/linux/{{ ansible_distribution | lower }}"
+    signed_by: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+    suites: ["{{ ansible_distribution_release | lower }}"]
+    components: [stable]
+    state: present
+    enabled: yes
 
-- name: Install Docker apt repository
-  apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+- name: Update repositories cache
+  ansible.builtin.apt:
+    update_cache: true
 
 - name: Install docker packages
   package:
@@ -40,14 +52,15 @@
   args:
     creates: /usr/local/bin/terraform
 
+- name: Enable i386 architecture
+  command: dpkg --add-architecture i386
+- name: Update repositories cache
+  ansible.builtin.apt:
+    update_cache: true
 - name: Install Steam
-  shell: |
-    wget --output-document /tmp/steam.deb https://steamcdn-a.akamaihd.net/client/installer/steam.deb && \
-    apt install -y /tmp/steam.deb && \
-    rm /tmp/steam.deb
-  args:
-    creates: /bin/steam
-
+  package:
+    name:
+      - steam-installer
 # Note: This is needed because xterm will be used as the default otherwise
 - name: Use urxvt as the default terminal
   alternatives:

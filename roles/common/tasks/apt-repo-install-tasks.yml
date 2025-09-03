@@ -1,7 +1,14 @@
-- name: Import the Google Linux signing key (apt-key)
-  apt_key:
-    url: "{{ item.key_url }}"
+- name: Add APT repositories
+  ansible.builtin.deb822_repository:
+    name: "{{ item.name }}"
+    types: [deb]
+    uris: "{{ item.uris }}"
+    signed_by: "{{ item.signed_by }}"
+    suites: [stable]
+    components: [main]
+    state: present
+    enabled: true
 
-- name: Install Google Chrome apt repository
-  apt_repository:
-    repo: "{{ item.repo }}"
+- name: Update repositories cache
+  ansible.builtin.apt:
+    update_cache: true
