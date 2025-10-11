@@ -1,5 +1,5 @@
 name = "machine-setup-test"
-ami = "ami-075686beab831bb7f" // Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
+ami = "ami-0a208b2fa6dfc6a92" // Ubuntu 25.10 hvm:ebs-ssd-gp3 - Found on cloud-images.ubuntu.com
 instance_type = "t3.medium"
 spot_type = "one-time"
 spot_price = "0.03"
