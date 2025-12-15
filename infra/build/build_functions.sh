@@ -49,7 +49,7 @@ ansible_deploy() {
 
   cd "$ROOT_DIR/$RELATIVE_PATH_TO_TF_DIR"
 
-  readonly INVENTORY=$(terraform show --json | jq --raw-output '.values.root_module.child_modules[].resources[] | select(.address == "aws_spot_instance_request.spot_instance_request") | .values.public_dns')
+  readonly INVENTORY=$(terraform show --json | jq --raw-output '.values.root_module.child_modules[].resources[] | select(.address == "module.helpers_spot_instance_ssh.aws_spot_instance_request.spot_instance_request") | .values.public_dns')
 
   cd "$ROOT_DIR"
 
