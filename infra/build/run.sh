@@ -15,8 +15,10 @@ set -x
 
 declare -r _PROJECT_NAME='machine-setup'
 declare -r _GIT_REPO='git@github.com:ScottG489/machine-setup.git'
+declare -r _RUN_TASK=$(jq -r .RUN_TASK <<< "$1")
+declare -r _GIT_BRANCH=$(jq -r .GIT_BRANCH <<< "$1")
 
-git clone $_GIT_REPO
+[ -d "$_PROJECT_NAME" ] || git clone --branch $_GIT_BRANCH $_GIT_REPO
 cd $_PROJECT_NAME
 
 # TODO: This is a bit hacky. It seems clean enough to copy this file into place where the playbook
