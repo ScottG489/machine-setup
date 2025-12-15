@@ -12,6 +12,7 @@ module "helpers_spot_instance_ssh" {
   spot_price = var.spot_price
   volume_size = var.volume_size
   public_key = var.public_key
+  instance_interruption_behavior = "terminate"
 }
 
 resource "random_id" "name" {

@@ -10,14 +10,16 @@ RUN apt-get update && \
   curl \
   unzip
 
-RUN curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip -o /tmp/terraform.zip && \
+ARG TERRAFORM_VERSION=1.14.2
+RUN curl https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /tmp/terraform.zip && \
   unzip -d /usr/local/bin /tmp/terraform.zip && \
   rm /tmp/terraform.zip
 
-RUN mkdir /tmp/awscli && \
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" && \
-  unzip -d /tmp/awscli /tmp/awscliv2.zip && \
-  /tmp/awscli/aws/install
+ARG AWSCLI_VERSION=2.32.16
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-$AWSCLI_VERSION.zip" -o "awscliv2.zip" && \
+  unzip awscliv2.zip && \
+  ./aws/install && \
+  rm -rf aws awscliv2.zip
 
 USER ubuntu
 
