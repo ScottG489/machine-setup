@@ -10,7 +10,7 @@ RUN apt-get update && \
   curl=8.5.0-2ubuntu10.6 \
   unzip=6.0-28ubuntu4.1
 
-ARG TERRAFORM_VERSION=1.14.2
+ARG TERRAFORM_VERSION=1.14.3
 RUN curl https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /tmp/terraform.zip && \
   unzip -d /usr/local/bin /tmp/terraform.zip && \
   rm /tmp/terraform.zip
