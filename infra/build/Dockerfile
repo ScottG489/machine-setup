@@ -7,7 +7,7 @@ RUN apt-get update && \
   git=1:2.43.0-1ubuntu7.3 \
   ansible=9.2.0+dfsg-0ubuntu5 \
   jq=1.7.1-3ubuntu0.24.04.1 \
-  curl=8.5.0-2ubuntu10.6 \
+  curl=8.5.0-2ubuntu10.7 \
   unzip=6.0-28ubuntu4.1
 
 ARG TERRAFORM_VERSION=1.14.5
