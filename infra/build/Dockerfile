@@ -4,11 +4,11 @@ ENV HOME="/home/ubuntu"
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  git=1:2.43.0-1ubuntu7.3 \
-  ansible=9.2.0+dfsg-0ubuntu5 \
-  jq=1.7.1-3ubuntu0.24.04.1 \
-  curl=8.5.0-2ubuntu10.8 \
-  unzip=6.0-28ubuntu4.1
+  git=1:2.53.0-1ubuntu1 \
+  ansible=13.1.0+dfsg-1ubuntu1 \
+  jq=1.8.1-4ubuntu2 \
+  curl=8.18.0-1ubuntu2 \
+  unzip=6.0-29ubuntu1
 
 ARG TERRAFORM_VERSION=1.14.9
 RUN curl https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /tmp/terraform.zip && \
