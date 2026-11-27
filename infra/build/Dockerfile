@@ -20,7 +20,7 @@ RUN apt-get -o Acquire::https::Verify-Peer=false update && \
   curl \
   unzip
 
-ARG TERRAFORM_VERSION=1.15.8
+ARG TERRAFORM_VERSION=1.17.2
 RUN curl https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /tmp/terraform.zip && \
   unzip -d /usr/local/bin /tmp/terraform.zip && \
   rm /tmp/terraform.zip
